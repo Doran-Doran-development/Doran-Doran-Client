@@ -3,87 +3,88 @@ import styled from "styled-components";
 //#region 1.Header Style
 const HeaderWrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 120px;
+  .search{
+    width:600px;
+    display:flex;
+    justify-content: flex-end;
+  }
 `;
 
 const LogoContainer = styled.div`
-  flex: 3.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   img {
-    margin: 2vw 0 0 2vw;
-    width: 4vw;
-    height: 8vh;
+    width: 70px;
+    height: 70px;
   }
 `;
 
 const SearchContainer = styled.div`
-  flex: 1.1;
-  align-self: center;
+  height: 50px;
+  width: 368px;
   display: flex;
-  flex-direction: row;
   border: 3px solid #025f94;
   border-radius: 5px;
-  margin-right: 5vw;
   input {
-    padding: 0.4vw 0 0.4vw 0;
-    border: none;
-    font-size: 20px;
-    text-align: right;
-  }
-  div {
-    border-right: 1px solid #e5e5e5;
-    border-radius: 10px;
-    margin: 0.5vh 0 0.5vh 0;
+    border: 0;
   }
   span {
-    align-self: center;
-    font-size: 20px;
-    width: 2vw;
-    text-align: center;
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #025f94;
     font-weight: bold;
-    padding-right: 0.7vw;
   }
   .icon {
-    align-self: center;
-    width: 3vw;
-    height: 3vh;
+    width: 30px;
+    height: 100%;
+    padding: 0 20px;
     color: #025f94;
-    padding: 0 0.5vw 0 0.5vw;
   }
 `;
 const InfoContainer = styled.div`
-  flex: 2;
-  padding: 0.8vw;
-  border-radius: 1vw;
-  margin-left: 10vw;
+  width: 460px;
+  height: 75px;
   display: flex;
-  flex-direction: row;
-  align-self: center;
-  justify-content: right;
-  background: linear-gradient(150deg, #004f7c 50%, #025f94 50%);
-  margin-right: 6vw;
-  div {
-    flex: 0.6;
-    align-self: center;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 20px;
+  background: linear-gradient(
+    97.56deg,
+    #025f94 -4.7%,
+    #066c9a 35.98%,
+    #0a79a0 62.77%,
+    #1482aa 83.62%,
+    #15a6af 108.5%
+  );
+  div{
+    display:flex;
+    justify-content:space-between;
+    width:260px;
   }
   span {
-    flex: 2;
     color: white;
     align-self: center;
     font-size: 18px;
     strong {
-      font-size: 20px;
+      font-size: 24px;
     }
   }
   button {
-    flex: 0.7;
+    width: 80px;
+    height: 30px;
     background-color: white;
-    border-radius: 0.6vw;
+    border-radius: 10px;
     border: none;
     color: #025f94;
     font-weight: bold;
     font-size: 13px;
-    padding: 0.2vw 0 0.2vw 0;
   }
 `;
 //#endregion
@@ -94,7 +95,9 @@ const RouterWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  border-bottom: 1px solid #829CAC;
   .line {
+    height: 30px;
     border-right: 2px solid #e5e5e5;
     border-radius: 10px;
   }

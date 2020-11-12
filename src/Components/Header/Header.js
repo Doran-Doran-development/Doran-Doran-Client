@@ -16,21 +16,21 @@ const RouterContainer = () => {
   return (
     <RouterWrapper>
       <Link
-        to="/Lookup"
+        to='/Lookup'
         className={`link ${pathname === "/Lookup" && "select"}`}
       >
         회의실 둘러보기
       </Link>
       <div className={"line"} />
       <Link
-        to="/Reservation"
+        to='/Reservation'
         className={`link ${pathname === "/Reservation" && "select"}`}
       >
         회의실 예약하기
       </Link>
       <div className={"line"} />
       <Link
-        to="/Mypage"
+        to='/Mypage'
         className={`link ${pathname === "/Mypage" && "select"}`}
       >
         마이페이지
@@ -46,22 +46,23 @@ const Header = () => {
     <>
       <HeaderWrapper>
         <LogoContainer>
-          <img src={Logo} alt="logo" />
+          <img src={Logo} alt='logo' />
         </LogoContainer>
-        <SearchContainer>
-          <BiCaretDown className={"icon"} />
-          <input />
-          <span>교시</span>
-          <div />
-          <BiSearch className={"icon"} />
-        </SearchContainer>
+        <div className="search">
+          <SearchContainer>
+            <BiCaretDown className={"icon"} />
+            <input />
+            <span>교시</span>
+            <BiSearch className={"icon"} />
+          </SearchContainer>
+        </div>
         <InfoContainer>
           <div>
-            <img src={Profile} alt="profile" />
+            <img src={Profile} alt='profile' />
+            <span>
+              <strong>정다인 </strong>님 환영합니다 !
+            </span>
           </div>
-          <span>
-            <strong>정다인 </strong>님 환영합니다 !
-          </span>
           <button>로그아웃</button>
         </InfoContainer>
       </HeaderWrapper>
