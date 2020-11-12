@@ -60,7 +60,14 @@ const InfoContainer = styled.div`
   flex-direction: row;
   align-self: center;
   justify-content: right;
-  background: linear-gradient(150deg, #004f7c 50%, #025f94 50%);
+  background: linear-gradient(
+    97.56deg,
+    #025f94 -4.7%,
+    #066c9a 35.98%,
+    #0a79a0 62.77%,
+    #1482aa 83.62%,
+    #15a6af 108.5%
+  );
   margin-right: 6vw;
   div {
     flex: 0.6;
