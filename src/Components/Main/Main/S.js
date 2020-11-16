@@ -15,8 +15,8 @@ const LogoWrapper = Styled.div`
       align-self : flex-start;
       img {
             margin : 3vh 0vw 0vh 2vw;
-            width: 3.5vw;
-            height : 7vh;
+            width: 75px;
+            height : 75px;
       }
 `;
 

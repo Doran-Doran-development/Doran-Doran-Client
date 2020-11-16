@@ -3,7 +3,6 @@ import BackgroundRoom from "../../img/room1.png";
 
 //#region  1. RoomItem Style
 const RoomItemWrapper = styled.div`
-  margin-top: 15vh;
   border-radius: 1vw;
   width: 100%;
   height: 90%;
@@ -74,6 +73,7 @@ const ReservationBtnWrapper = styled.div`
 
 //#region  2. RoomItemList 가 들어간 LookUp 컴포넌트 Style
 const LookUpWrapper = styled.div`
+  margin: 10vh 0;
   justify-content: center;
   display: grid;
   grid-template-columns: repeat(2, 28vw);

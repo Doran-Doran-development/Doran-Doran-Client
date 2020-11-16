@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
 const LoginWrapper = styled.div`
-  width: 45vw;
-  height: 34vw;
+  width: 60vw;
+  height: 40vw;
   border: 2px solid #e5e5e5;
   border-radius: 2vw;
   background-color: white;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-content: center;
+  align-items: center;
 `;
 
 const CloseBtn = styled.div`
@@ -26,6 +28,7 @@ const LogoContainer = styled.div`
   }
 `;
 const InputContainer = styled.div`
+  width:51%;
   flex: 0.2;
   display: flex;
   border: 3px solid #e5e5e5;
@@ -45,6 +48,7 @@ const InputContainer = styled.div`
 `;
 
 const LoginBtn = styled.div`
+  width:51%;
   flex: 0.18;
   display: flex;
   justify-content: center;
