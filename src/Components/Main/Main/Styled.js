@@ -1,11 +1,11 @@
 import Styled from "styled-components";
 import People from "../../../img/people.png";
+
 const MainWrapper = Styled.div`
       width: 100vw;
       height: 100vh;   
-      background : url(${People});
+      background-image: url(${People});
       background-size: cover;
-      background-repeat: no-repeat;
       display : flex;
       flex-direction : column;
       justify-content : space-between;
