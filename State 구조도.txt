@@ -1,0 +1,23 @@
+Authentication
+ user {
+email, password, name ,position(isTeacher)
+}
+
+
+Conference Room
+room [{
+id, name, maxteam, owner
+}],
+roomInfo {
+ id, name, maxTeam, curTeam, owner
+}
+
+Reservation 
+예약 {room_id, team_id, start_at(시작교시), end_at(종료교시)}
+조회 [{reserve_id, room_id, team_id, start_at, end_at, create_at, status(상태)}]
+세부정보 {reserve_id, room_id, team_id, start_at, end_at, create_at , status}
+예약 응답 {status}
+
+Team
+생성 {name, description, teacher}
+
