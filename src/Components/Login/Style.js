@@ -1,23 +1,25 @@
 import styled from "styled-components";
 
-const LoginWrapper = styled.div`
-  width: 45vw;
-  height: 34vw;
+export const LoginWrapper = styled.div`
+  width: 60vw;
+  height: 40vw;
   border: 2px solid #e5e5e5;
   border-radius: 2vw;
   background-color: white;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-content: center;
+  align-items: center;
 `;
 
-const CloseBtn = styled.div`
+export const CloseBtn = styled.div`
   flex: 0.3;
   align-self: flex-end;
   margin: 3vh 2vw 0 0;
 `;
 
-const LogoContainer = styled.div`
+export const LogoContainer = styled.div`
   flex: 0.7;
   align-self: center;
   img {
@@ -25,7 +27,8 @@ const LogoContainer = styled.div`
     height: 12vh;
   }
 `;
-const InputContainer = styled.div`
+export const InputContainer = styled.div`
+  width:51%;
   flex: 0.2;
   display: flex;
   border: 3px solid #e5e5e5;
@@ -44,7 +47,8 @@ const InputContainer = styled.div`
   }
 `;
 
-const LoginBtn = styled.div`
+export const LoginBtn = styled.div`
+  width:51%;
   flex: 0.18;
   display: flex;
   justify-content: center;
@@ -60,7 +64,7 @@ const LoginBtn = styled.div`
   }
 `;
 
-const GoogleText = styled.div`
+export const GoogleText = styled.div`
   align-self: center;
   margin: 0.5vh 0 10vh 0;
   span {
@@ -68,12 +72,3 @@ const GoogleText = styled.div`
     color: #025f94;
   }
 `;
-
-export {
-  LoginWrapper,
-  CloseBtn,
-  LogoContainer,
-  InputContainer,
-  LoginBtn,
-  GoogleText,
-};

@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "../Components";
+import { Footer, Header } from "../Components";
 import Routes from "../routes";
 
 const Home = () => {
@@ -7,6 +7,7 @@ const Home = () => {
     <div>
       <Header />
       <Routes />
+      <Footer />
     </div>
   );
 };

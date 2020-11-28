@@ -2,8 +2,7 @@ import styled from "styled-components";
 import BackgroundRoom from "../../img/room1.png";
 
 //#region  1. RoomItem Style
-const RoomItemWrapper = styled.div`
-  margin-top: 15vh;
+export const RoomItemWrapper = styled.div`
   border-radius: 1vw;
   width: 100%;
   height: 90%;
@@ -29,7 +28,7 @@ const RoomItemWrapper = styled.div`
   }
 `;
 
-const RoomItemContainer = styled.div`
+export const RoomItemContainer = styled.div`
   margin: 2vw 2vw 2vw 3vw;
   width: 90%;
   height: 90%;
@@ -40,17 +39,17 @@ const RoomItemContainer = styled.div`
   align-content: center;
 `;
 
-const TitleText = styled.span`
+export  const TitleText = styled.span`
   font-weight: bold;
   font-size: 2vw;
 `;
 
-const PeopleText = styled.span`
+export const PeopleText = styled.span`
   font-size: 1.5vw;
   margin-bottom: 3vh;
 `;
 
-const ReservationBtnWrapper = styled.div`
+export const ReservationBtnWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -73,7 +72,8 @@ const ReservationBtnWrapper = styled.div`
 //#endregion
 
 //#region  2. RoomItemList 가 들어간 LookUp 컴포넌트 Style
-const LookUpWrapper = styled.div`
+export const LookUpWrapper = styled.div`
+  margin: 10vh 0;
   justify-content: center;
   display: grid;
   grid-template-columns: repeat(2, 28vw);
@@ -81,12 +81,3 @@ const LookUpWrapper = styled.div`
   gap: 4vw 6vw;
 `;
 //#endregion
-
-export {
-  RoomItemWrapper,
-  LookUpWrapper,
-  RoomItemContainer,
-  TitleText,
-  PeopleText,
-  ReservationBtnWrapper,
-};

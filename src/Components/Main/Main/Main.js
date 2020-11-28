@@ -8,7 +8,7 @@ import {
   SigninBtn,
   MainTextWrapper,
   LogoWrapper,
-} from "./S";
+} from "./Styled";
 
 const Main = () => {
   const [loginOpen, setLoginOpen] = useState(false);

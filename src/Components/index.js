@@ -4,5 +4,7 @@ import Login from "./Login/Login";
 import Register from "./Register/Register";
 import Header from "./Header/Header";
 import LookUp from "./Lookup/Lookup";
+import Footer from "./Footer/Footer";
+import Reservation from "./Reservation/Reservation";
 
-export { Main, Login, Register, Header, LookUp };
+export { Main, Login, Register, Header, LookUp, Footer, Reservation };

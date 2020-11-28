@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
   &::-webkit-scrollbar {
     display: none;
   }
-  } 
+  }
 `;
 const App = () => {
   return (
