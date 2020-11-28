@@ -2,7 +2,7 @@ import styled from "styled-components";
 import room1 from "../../img/room1.png";
 import arrow from "../../img/arrow.png";
 
-const ReservationWrapper = styled.div`
+export const ReservationWrapper = styled.div`
   width: 100vw;
   height: 540px;
   display: flex;
@@ -10,14 +10,14 @@ const ReservationWrapper = styled.div`
   align-items: center;
 `;
 
-const ContentnWrapper = styled.div`
+export const ContentnWrapper = styled.div`
   width: 1100px;
   height: 360px;
   display: flex;
   justify-content: space-between;
 `;
 
-const PictureWrapper = styled.div`
+export const PictureWrapper = styled.div`
   width: 565px;
   height: 360px;
   border-radius: 5px;
@@ -25,12 +25,12 @@ const PictureWrapper = styled.div`
   background-size: cover;
 `;
 
-const Line = styled.div`
+export const Line = styled.div`
   height: 360px;
   border-left: 2px solid #c5c5c5;
 `;
 
-const ButtonWrapper = styled.div`
+export const ButtonWrapper = styled.div`
   width: 440px;
   height: 360px;
   display: flex;
@@ -54,7 +54,7 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-const TextBox = styled.div`
+export const TextBox = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -69,7 +69,7 @@ const TextBox = styled.div`
   }
 `;
 
-const ButtonBox = styled.div`
+export const ButtonBox = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -101,7 +101,7 @@ const ButtonBox = styled.div`
   }
 `;
 
-const SelectBox = styled.div`
+export const SelectBox = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -123,13 +123,3 @@ const SelectBox = styled.div`
   }
 `;
 
-export {
-  ReservationWrapper,
-  ContentnWrapper,
-  PictureWrapper,
-  Line,
-  ButtonWrapper,
-  TextBox,
-  ButtonBox,
-  SelectBox,
-};

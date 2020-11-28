@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const FooterWrapper = styled.div`
+export const FooterWrapper = styled.div`
   width: 100vw;
   height: 260px;
   display: flex;
@@ -10,7 +10,7 @@ const FooterWrapper = styled.div`
   background-color: #f1f1f1;
 `;
 
-const IconWrapper = styled.div`
+export const IconWrapper = styled.div`
   width: 190px;
   height: 50px;
   display: flex;
@@ -21,7 +21,7 @@ const IconWrapper = styled.div`
   }
 `;
 
-const TextWrapper = styled.div`
+export const TextWrapper = styled.div`
   height:104px;
   display: flex;
   flex-direction: column;
@@ -29,14 +29,14 @@ const TextWrapper = styled.div`
   justify-content: space-around;
 `;
 
-const InquireWrapper = styled.div`
+export const InquireWrapper = styled.div`
   width:fit-content;
   p {
     text-align: center;
   }
 `;
 
-const PrivacyPolicy = styled.div`
+export const PrivacyPolicy = styled.div`
   width:fit-content;
   text-align: center;
   .link {
@@ -45,15 +45,6 @@ const PrivacyPolicy = styled.div`
   }
 `;
 
-const Copyright = styled.div`
+export const Copyright = styled.div`
   width:fit-content;
 `;
-
-export {
-  FooterWrapper,
-  IconWrapper,
-  TextWrapper,
-  InquireWrapper,
-  PrivacyPolicy,
-  Copyright,
-};
