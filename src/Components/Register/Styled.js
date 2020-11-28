@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SelectFormTextWrapper = styled.div`
+export const SelectFormTextWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +10,7 @@ const SelectFormTextWrapper = styled.div`
   }
 `;
 
-const SelectFormContainer = styled.div`
+export const SelectFormContainer = styled.div`
   width: 70%;
   height: 80%;
   display: flex;
@@ -18,7 +18,7 @@ const SelectFormContainer = styled.div`
   align-items:center;
 `;
 
-const SelectItem = styled.div`
+export const SelectItem = styled.div`
   display: flex;
   justify-content: space-around;
   label {
@@ -43,4 +43,3 @@ const SelectItem = styled.div`
     }
   }
 `;
-export { SelectFormTextWrapper, SelectFormContainer, SelectItem };

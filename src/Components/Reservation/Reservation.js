@@ -7,6 +7,7 @@ import {
   ButtonWrapper,
   TextBox,
   ButtonBox,
+  SelectBox,
 } from "./Styled";
 
 const Reservation = () => {
@@ -111,6 +112,14 @@ const Reservation = () => {
                 </button>
               </div>
             </ButtonBox>
+            <SelectBox>
+              <select name='team' className='selectTeam'>
+                <option selected>팀을 선택해주세요</option>
+                <option value='ict'>ICT</option>
+                <option value='bts'>BTS</option>
+              </select>
+            </SelectBox>
+            <button id="reservation">예약하기</button>
           </div>
         </ButtonWrapper>
       </ContentnWrapper>

@@ -1,7 +1,7 @@
 import Styled from "styled-components";
 import People from "../../../img/people.png";
 
-const MainWrapper = Styled.div`
+export const MainWrapper = Styled.div`
       width: 100vw;
       height: 100vh;   
       background-image: url(${People});
@@ -11,7 +11,7 @@ const MainWrapper = Styled.div`
       justify-content : space-between;
  `;
 
-const LogoWrapper = Styled.div`
+export const LogoWrapper = Styled.div`
       align-self : flex-start;
       img {
             margin : 3vh 0vw 0vh 2vw;
@@ -20,7 +20,7 @@ const LogoWrapper = Styled.div`
       }
 `;
 
-const MainTextWrapper = Styled.div`
+export const MainTextWrapper = Styled.div`
       display : block;
             margin: 0vh 0vw 0vh 20vw;
       strong {
@@ -36,11 +36,11 @@ const MainTextWrapper = Styled.div`
       }
 `;
 
-const BtnWrapper = Styled.div`
+export const BtnWrapper = Styled.div`
       vertical-align:bottom;
       margin : 20vh 0px 2vw 5vw;
 `;
-const LoginBtn = Styled.button`
+export const LoginBtn = Styled.button`
       background: none;
       padding : 8px 35px 8px 35px;
       border: 3px solid #025F94;
@@ -49,17 +49,9 @@ const LoginBtn = Styled.button`
       font-size: 23px;
       font-weight: 800;
 `;
-const SigninBtn = Styled.button`
+export const SigninBtn = Styled.button`
       margin-left: 3vw;
       background: none;
       border : none;
       font-size: 23px;
 `;
-export {
-  MainWrapper,
-  LoginBtn,
-  BtnWrapper,
-  SigninBtn,
-  MainTextWrapper,
-  LogoWrapper,
-};

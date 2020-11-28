@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 //#region 1.Header Style
-const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -13,7 +13,7 @@ const HeaderWrapper = styled.div`
   }
 `;
 
-const LogoContainer = styled.div`
+export const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +23,7 @@ const LogoContainer = styled.div`
   }
 `;
 
-const SearchContainer = styled.div`
+export const SearchContainer = styled.div`
   height: 50px;
   width: 368px;
   display: flex;
@@ -48,7 +48,7 @@ const SearchContainer = styled.div`
     color: #025f94;
   }
 `;
-const InfoContainer = styled.div`
+export const InfoContainer = styled.div`
   width: 460px;
   height: 75px;
   display: flex;
@@ -90,7 +90,7 @@ const InfoContainer = styled.div`
 //#endregion
 
 //#region  2. RouterContainer Style
-const RouterWrapper = styled.div`
+export const RouterWrapper = styled.div`
   margin-top: 2vw;
   display: flex;
   flex-direction: row;
@@ -118,11 +118,3 @@ const RouterWrapper = styled.div`
 `;
 
 //#endregion
-
-export {
-  HeaderWrapper,
-  LogoContainer,
-  SearchContainer,
-  InfoContainer,
-  RouterWrapper,
-};
