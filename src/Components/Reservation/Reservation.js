@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import {
-  ContentnWrapper,
+  ContentWrapper,
   ReservationWrapper,
   PictureWrapper,
   Line,
-  ButtonWrapper,
+  ContentBox,
   TextBox,
-  ButtonBox,
+  TimeButtonBox,
   SelectBox,
+  ReservationBtn,
 } from "./Styled";
 
 const Reservation = () => {
@@ -69,60 +70,58 @@ const Reservation = () => {
 
   return (
     <ReservationWrapper>
-      <ContentnWrapper>
+      <ContentWrapper>
         <PictureWrapper></PictureWrapper>
         <Line></Line>
-        <ButtonWrapper>
-          <div className='wrap'>
-            <TextBox>
-              <span className='roomName'>3층 홈베이스 1실</span>
-              <span className='people'>수용인원 : 6명</span>
-            </TextBox>
-            <ButtonBox>
-              <div className='row'>
-                <button
-                  id='btn8'
-                  className='notSelected'
-                  onClick={() => timeSelection(8)}
-                >
-                  8 교시
-                </button>
-                <button
-                  id='btn9'
-                  className='notSelected'
-                  onClick={() => timeSelection(9)}
-                >
-                  9 교시
-                </button>
-              </div>
-              <div className='row'>
-                <button
-                  id='btn10'
-                  className='notSelected'
-                  onClick={() => timeSelection(10)}
-                >
-                  10 교시
-                </button>
-                <button
-                  id='btn11'
-                  className='notSelected'
-                  onClick={() => timeSelection(11)}
-                >
-                  11 교시
-                </button>
-              </div>
-            </ButtonBox>
-            <SelectBox>
-              <select name='team' className='selectTeam'>
-                <option selected>팀을 선택해주세요</option>
-                <option value='ict'>ICT</option>
-                <option value='bts'>BTS</option>
-              </select>
-            </SelectBox>
-            <button id="reservation">예약하기</button>
-          </div>
-        </ButtonWrapper>
-      </ContentnWrapper>
+        <ContentBox>
+          <TextBox>
+            <span id='roomName'>3층 홈베이스 1실</span>
+            <span id='people'>수용인원 : 6명</span>
+          </TextBox>
+          <TimeButtonBox>
+            <div className='row'>
+              <button
+                id='btn8'
+                className='notSelected'
+                onClick={() => timeSelection(8)}
+              >
+                8 교시
+              </button>
+              <button
+                id='btn9'
+                className='notSelected'
+                onClick={() => timeSelection(9)}
+              >
+                9 교시
+              </button>
+            </div>
+            <div className='row'>
+              <button
+                id='btn10'
+                className='notSelected'
+                onClick={() => timeSelection(10)}
+              >
+                10 교시
+              </button>
+              <button
+                id='btn11'
+                className='notSelected'
+                onClick={() => timeSelection(11)}
+              >
+                11 교시
+              </button>
+            </div>
+          </TimeButtonBox>
+          <SelectBox>
+            <select name='team' className='selectTeam'>
+              <option selected>팀을 선택해주세요</option>
+              <option value='ict'>ICT</option>
+              <option value='bts'>BTS</option>
+            </select>
+          </SelectBox>
+          <ReservationBtn>예약하기</ReservationBtn>
+        </ContentBox>
+      </ContentWrapper>
     </ReservationWrapper>
   );
 };

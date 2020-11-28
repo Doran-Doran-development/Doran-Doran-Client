@@ -10,7 +10,7 @@ export const ReservationWrapper = styled.div`
   align-items: center;
 `;
 
-export const ContentnWrapper = styled.div`
+export const ContentWrapper = styled.div`
   width: 1100px;
   height: 360px;
   display: flex;
@@ -30,28 +30,12 @@ export const Line = styled.div`
   border-left: 2px solid #c5c5c5;
 `;
 
-export const ButtonWrapper = styled.div`
+export const ContentBox = styled.div`
   width: 440px;
   height: 360px;
   display: flex;
-  align-items: center;
-  .wrap {
-    width: 100%;
-    height: fit-content;
-    #reservation{
-      width:100%;
-      height: 50px;
-      display:flex;
-      justify-content: center;
-      align-items:center;
-      border-radius: 10px;
-      border: 0;
-      color: #ffffff;
-      background-color: #025f94;
-      font-size: 20px;
-      font-weight: bold;
-    }
-  }
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const TextBox = styled.div`
@@ -59,17 +43,17 @@ export const TextBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  .roomName {
+  #roomName {
     font-size: 32px;
     font-weight: bold;
   }
-  .people {
+  #people {
     font-size: 24px;
     font-weight: bold;
   }
 `;
 
-export const ButtonBox = styled.div`
+export const TimeButtonBox = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -116,10 +100,23 @@ export const SelectBox = styled.div`
     font-weight: bold;
     color: #025f94;
     background: url(${arrow}) no-repeat 85% 50%;
-    background-color: #F9FBFD;
+    background-color: #f9fbfd;
     -webkit-appearance: none; /* 네이티브 외형 감추기 */
     -moz-appearance: none;
     appearance: none;
   }
 `;
 
+export const ReservationBtn = styled.button`
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 0;
+  color: #ffffff;
+  background-color: #025f94;
+  font-size: 20px;
+  font-weight: bold;
+`;
