@@ -4,7 +4,7 @@ import arrow from "../../img/arrow.png";
 
 export const ReservationWrapper = styled.div`
   width: 100vw;
-  height: 540px;
+  height: 556px;
   display: flex;
   justify-content: center;
   align-items: center;
