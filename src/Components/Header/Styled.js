@@ -3,12 +3,13 @@ import styled from "styled-components";
 //#region 1.Header Style
 export const HeaderWrapper = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   height: 120px;
-  .search{
-    width:600px;
-    display:flex;
+  padding: 0 50px;
+  .search {
+    width: 600px;
+    display: flex;
     justify-content: flex-end;
   }
 `;
@@ -18,17 +19,17 @@ export const LogoContainer = styled.div`
   justify-content: center;
   align-items: center;
   img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
   }
 `;
 
 export const SearchContainer = styled.div`
-  height: 50px;
+  height: 45px;
   width: 368px;
   display: flex;
-  border: 3px solid #025f94;
-  border-radius: 5px;
+  border: 2px solid #025f94;
+  border-radius: 25px;
   input {
     border: 0;
   }
@@ -49,8 +50,8 @@ export const SearchContainer = styled.div`
   }
 `;
 export const InfoContainer = styled.div`
-  width: 460px;
-  height: 75px;
+  width: 350px;
+  height: 55px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -63,39 +64,42 @@ export const InfoContainer = styled.div`
     #1482aa 83.62%,
     #15a6af 108.5%
   );
-  div{
-    display:flex;
-    justify-content:space-between;
-    width:260px;
-  }
-  span {
-    color: white;
-    align-self: center;
-    font-size: 18px;
-    strong {
-      font-size: 24px;
+  div {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    img {
+      width: 30px;
+      height: 30px;
+    }
+    span {
+      color: white;
+      align-self: center;
+      font-size: 14px;
+      strong {
+        font-size: 20px;
+      }
     }
   }
   button {
-    width: 80px;
-    height: 30px;
+    width: 70px;
+    height: 25px;
     background-color: white;
     border-radius: 10px;
     border: none;
     color: #025f94;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 12px;
   }
 `;
 //#endregion
 
 //#region  2. RouterContainer Style
 export const RouterWrapper = styled.div`
-  margin-top: 2vw;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  border-bottom: 1px solid #829CAC;
+  border-bottom: 1px solid #829cac;
   .line {
     height: 30px;
     border-right: 2px solid #e5e5e5;
