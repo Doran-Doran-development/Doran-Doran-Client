@@ -93,6 +93,54 @@ export const ListContainer = styled.div`
   height: 300px;
   border-radius: 20px;
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .listWrap {
+    width: 80%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .listTop {
+      display: flex;
+      align-items: center;
+      span {
+        font-size: 22px;
+        font-weight: bold;
+        color: #003464;
+      }
+      img {
+        width: 20px;
+        height: 20px;
+        margin-left: 15px;
+      }
+    }
+    .listContainer {
+      width: 95%;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 10px;
+      padding: 0 5%;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+    .refusal {
+      background-color: #ff4d4d;
+      color: #ffffff;
+    }
+    .approval {
+      background-color: #42df8a;
+      color: #ffffff;
+    }
+    .waiting {
+      background-color: #ffffff;
+      color: #808080;
+    }
+  }
 `;
 
 export const TeamContainer = styled.div`
@@ -100,4 +148,39 @@ export const TeamContainer = styled.div`
   height: 150px;
   border-radius: 20px;
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .teamWrap {
+    width: 80%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .teamTop {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        font-size: 22px;
+        font-weight: bold;
+        color: #003464;
+      }
+      img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+    .teamName{
+      width: 100%;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      ul{
+        width: 40%;
+        padding-left: 20px;
+      }
+    }
+  }
 `;
