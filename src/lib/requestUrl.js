@@ -1,5 +1,6 @@
 import axios from "axios";
-
+import { BASE_URL } from "../config/config.json";
+import { AUTH } from "./requestApi";
 export const methodType = {
   GET: "get",
   POST: "post",
@@ -26,7 +27,9 @@ export const requestApiWithBodyWithoutToken = async (
 ) => {
   try {
     const res = await axios[method](BASE_URL + url, body, {
-      headers: { ...header },
+      headers: {
+        ...header,
+      },
     });
     return res;
   } catch (error) {
@@ -52,17 +55,21 @@ export const requestApiWithoutBodyWithoutToken = async (
   }
 };
 //토큰이 필요한 파라미터 없는 api 요청
-export const requsetApiWithoutBodyWithToken = async (
+export const requestApiWithoutBodyWithToken = async (
   BASE_URL,
   method,
   url,
   header
 ) => {
   try {
-    const accessToken = window.localStorage.getItem(ACCESS_TOKEN);
+    const accessToken = window.localStorage.getItem("token");
     const res = await axios[method](BASE_URL + url, {
       headers: {
-        [ACCESS_TOKEN_NAME]: accessToken,
+        [ACCESS_TOKEN_NAME]: `jwt ${accessToken}`,
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type,Authorization",
+        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,OPTIONS",
+        "Access-Control-Allow-Credentials": "true",
         ...header,
       },
     });
@@ -81,15 +88,28 @@ export const requestApiWithBodyWithToken = async (
   header
 ) => {
   try {
-    const accessToken = window.localStorage.getItem(ACCESS_TOKEN);
-    const res = await axios[method](BASE_URL + url, body, {
+    const accessToken = window.localStorage.getItem("token");
+    const res = await axios[method](BASE_URL + url, {
       headers: {
-        [ACCESS_TOKEN_NAME]: accessToken,
+        [ACCESS_TOKEN_NAME]: `jwt ${accessToken}`,
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type,Authorization",
+        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,OPTIONS",
+        "Access-Control-Allow-Credentials": "true",
         ...header,
       },
     });
     return res;
   } catch (error) {
     throw error;
+  }
+};
+
+export const refreshToken = async () => {
+  try {
+    const refreshToken = window.localStorage.getItem(REFRESH_TOKEN);
+    const res = await requestApiWithoutBodyWithToken(BASE_URL);
+  } catch (error) {
+    throw new Error(error);
   }
 };

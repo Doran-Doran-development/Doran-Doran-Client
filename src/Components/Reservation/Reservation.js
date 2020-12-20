@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
+import RoomAPI from "../../asset/api/RoomAPI";
+import { useRoomState } from "../../Container/Context/Context";
 import {
   ContentWrapper,
   ReservationWrapper,
@@ -9,6 +12,7 @@ import {
   TimeButtonBox,
   SelectBox,
   ReservationBtn,
+  Buttons,
 } from "./Styled";
 
 const Reservation = () => {
@@ -16,8 +20,17 @@ const Reservation = () => {
   const [class9, setClass9] = useState(false);
   const [class10, setClass10] = useState(false);
   const [class11, setClass11] = useState(false);
-
-  const timeSelection = time => {
+  const state = useRoomState();
+  const [roomInfo, setInfo] = useState(state.select_room);
+  let is_full = [false, false, false, false];
+  const history = useHistory();
+  const cur_r = state.roomInfo[state.select_room];
+  const handleReserve = () => {
+    alert("예약이 신청되었습니다.");
+    history.push("/LookUp");
+  };
+  console.log(is_full, state.select_room);
+  const timeSelection = (time) => {
     switch (time) {
       case 8:
         const btn8 = document.getElementById("btn8");
@@ -68,6 +81,7 @@ const Reservation = () => {
     }
   };
 
+  const { id, name, max_team, cur_team, status, create_at, owner } = roomInfo;
   return (
     <ReservationWrapper>
       <ContentWrapper>
@@ -75,51 +89,75 @@ const Reservation = () => {
         <Line></Line>
         <ContentBox>
           <TextBox>
-            <span id='roomName'>3층 홈베이스 1실</span>
-            <span id='people'>수용인원 : 6명</span>
+            <span id="roomName">{name}</span>
+            <span id="people">수용인원 : {max_team}팀</span>
           </TextBox>
           <TimeButtonBox>
-            <div className='row'>
-              <button
-                id='btn8'
-                className='notSelected'
-                onClick={() => timeSelection(8)}
+            <div className="row">
+              <Buttons
+                id="btn8"
+                is_full={is_full[0]}
+                select={class8}
+                onClick={() => {
+                  if (is_full[0] === true) {
+                  } else {
+                    timeSelection(8);
+                  }
+                }}
               >
                 8 교시
-              </button>
-              <button
-                id='btn9'
-                className='notSelected'
-                onClick={() => timeSelection(9)}
+              </Buttons>
+              <Buttons
+                id="btn9"
+                select={class9}
+                is_full={is_full[1]}
+                onClick={() => {
+                  if (is_full[1] === true) {
+                  } else {
+                    timeSelection(9);
+                  }
+                }}
               >
                 9 교시
-              </button>
+              </Buttons>
             </div>
-            <div className='row'>
-              <button
-                id='btn10'
-                className='notSelected'
-                onClick={() => timeSelection(10)}
+            <div className="row">
+              <Buttons
+                id="btn10"
+                select={class10}
+                is_full={is_full[2]}
+                onClick={() => {
+                  if (is_full[2] === true) {
+                  } else {
+                    timeSelection(10);
+                  }
+                }}
               >
                 10 교시
-              </button>
-              <button
-                id='btn11'
-                className='notSelected'
-                onClick={() => timeSelection(11)}
+              </Buttons>
+              <Buttons
+                id="btn11"
+                select={class11}
+                is_full={is_full[3]}
+                onClick={() => {
+                  if (is_full[3] === true) {
+                  } else {
+                    timeSelection(11);
+                  }
+                }}
               >
                 11 교시
-              </button>
+              </Buttons>
             </div>
           </TimeButtonBox>
           <SelectBox>
-            <select name='team' className='selectTeam'>
+            <select name="team" className="selectTeam">
               <option selected>팀을 선택해주세요</option>
-              <option value='ict'>ICT</option>
-              <option value='bts'>BTS</option>
+              <option value="ict">ICT</option>
+              <option value="bts">BTS</option>
             </select>
           </SelectBox>
-          <ReservationBtn>예약하기</ReservationBtn>
+          <ReservationBtn onClick={handleReserve}>예약하기</ReservationBtn>
         </ContentBox>
       </ContentWrapper>
     </ReservationWrapper>
