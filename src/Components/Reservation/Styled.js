@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import room1 from "../../img/room1.png";
 import arrow from "../../img/arrow.png";
 
@@ -62,27 +62,33 @@ export const TimeButtonBox = styled.div`
     justify-content: space-between;
     padding: 5% 0 0 0;
   }
+`;
 
-  #btn8,
-  #btn9,
-  #btn10,
-  #btn11 {
-    width: 46%;
-    height: 50px;
-    border-radius: 10px;
-    font-size: 20px;
-    font-weight: bold;
-  }
-  .selected {
-    border: 2px solid #92bbd2;
-    background-color: #f2f9fb;
-    color: #025f94;
-  }
-  .notSelected {
-    border: 0px solid;
-    background-color: #025f94;
-    color: #ffffff;
-  }
+export const Buttons = styled.button`
+  width: 46%;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  ${(props) =>
+    props.is_full &&
+    css`
+      border: 0px solid !important;
+      background-color: red !important;
+      color: #ffffff !important;
+    `}
+  ${(props) =>
+    props.select
+      ? css`
+          border: 0px solid;
+          background-color: #025f94;
+          color: #ffffff;
+        `
+      : css`
+          border: 2px solid #92bbd2;
+          background-color: #f2f9fb;
+          color: #025f94;
+        `}
 `;
 
 export const SelectBox = styled.div`

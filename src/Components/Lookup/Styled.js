@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import BackgroundRoom from "../../img/room1.png";
 
 //#region  1. RoomItem Style
@@ -39,7 +39,7 @@ export const RoomItemContainer = styled.div`
   align-content: center;
 `;
 
-export  const TitleText = styled.span`
+export const TitleText = styled.span`
   font-weight: bold;
   font-size: 2vw;
 `;
@@ -66,7 +66,16 @@ export const ReservationBtnWrapper = styled.div`
   strong {
     flex: 0.2;
     align-self: flex-start;
-    font-size: 2vw;
+    margin: 20px 20px 0px 0px;
+    font-size: 1.2vw;
+    ${(props) =>
+      props.status
+        ? css`
+            color: green;
+          `
+        : css`
+            color: red;
+          `}
   }
 `;
 //#endregion
