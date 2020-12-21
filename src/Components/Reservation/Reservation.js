@@ -82,6 +82,9 @@ const Reservation = () => {
   };
 
   const { id, name, max_team, cur_team, status, create_at, owner } = roomInfo;
+  const teamOptions = state.userInfo.cur_team.map((team) => (
+    <option value={`team`}>{team}</option>
+  ));
   return (
     <ReservationWrapper>
       <ContentWrapper>
@@ -153,8 +156,7 @@ const Reservation = () => {
           <SelectBox>
             <select name="team" className="selectTeam">
               <option selected>팀을 선택해주세요</option>
-              <option value="ict">ICT</option>
-              <option value="bts">BTS</option>
+              {teamOptions}
             </select>
           </SelectBox>
           <ReservationBtn onClick={handleReserve}>예약하기</ReservationBtn>
