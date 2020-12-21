@@ -25,11 +25,11 @@ export const LogoContainer = styled.div`
 
 export const SearchContainer = styled.div`
   height: 50px;
-  width: 368px;
   display: flex;
   border: 3px solid #025f94;
-  border-radius: 5px;
+  border-radius: 50px;
   input {
+    width: 200px;
     border: 0;
   }
   span {
@@ -49,8 +49,8 @@ export const SearchContainer = styled.div`
   }
 `;
 export const InfoContainer = styled.div`
-  width: 460px;
-  height: 75px;
+  width: 350px;
+  height: 60px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -65,15 +65,19 @@ export const InfoContainer = styled.div`
   );
   div{
     display:flex;
-    justify-content:space-between;
-    width:260px;
+    justify-content:space-around;
+    width:200px;
+    img{
+      width: 30px;
+      height: 30px;
+    }
   }
   span {
     color: white;
     align-self: center;
-    font-size: 18px;
+    font-size: 14px;
     strong {
-      font-size: 24px;
+      font-size: 20px;
     }
   }
   button {

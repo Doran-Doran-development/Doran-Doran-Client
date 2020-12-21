@@ -49,6 +49,20 @@ export const initState = {
       team: "도란도란개발팀",
       allow: 3,
     },
+    {
+      id: 3,
+      name: "3층 네트워크실",
+      classtime: [9, 10],
+      team: "도란도란개발팀",
+      allow: 3,
+    },
+    {
+      id: 4,
+      name: "3층 네트워크실",
+      classtime: [9, 10],
+      team: "도란도란개발팀",
+      allow: 2,
+    },
   ],
 };
 export const reducer = (state = initState, action) => {
