@@ -37,7 +37,7 @@ export const MyRoomBox = styled.div`
 export const MyRoomContainer = styled.div`
   width: 650px;
   height: 330px;
-  overflow: auto;
+  overflow: scroll;
   margin: 10px 0;
   display: flex;
   flex-direction: column;
@@ -121,7 +121,7 @@ export const ListContainer = styled.div`
     }
     .allowBox {
       width: 100%;
-      overflow: auto;
+      overflow: scroll;
     }
     .listContainer {
       width: 90%;
