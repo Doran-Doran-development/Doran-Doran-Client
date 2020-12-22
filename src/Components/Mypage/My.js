@@ -17,12 +17,12 @@ import RoomItem from "./RoomItem/RoomItem";
 const My = () => {
   const state = useRoomState();
   const myRooms = state.teacherRoom
-    .filter((item) => state.userInfo.cur_team.indexOf(item.team) !== -1)
+    .filter(item => state.userInfo.cur_team.indexOf(item.team) !== -1)
     .map(({ name, classtime, team }) => {
       return <RoomItem name={name} classtime={classtime} team={team} />;
     });
   const allowList = state.teacherRoom
-    .filter((item) => state.userInfo.cur_team.indexOf(item.team) !== -1)
+    .filter(item => state.userInfo.cur_team.indexOf(item.team) !== -1)
     .map(({ name, allow }) => {
       return (
         <div
@@ -44,26 +44,26 @@ const My = () => {
     <MyPageWrapper>
       <MyContentBox>
         <MyRoomBox>
-          <div id="text">내 회의실</div>
+          <div id='text'>내 회의실</div>
           <MyRoomContainer>{myRooms}</MyRoomContainer>
         </MyRoomBox>
         <ControlWrapper>
           <ListContainer>
-            <div className="listWrap">
-              <div className="listTop">
+            <div className='listWrap'>
+              <div className='listTop'>
                 <span>승인 목록</span>
                 <img src={checked}></img>
               </div>
-              {allowList}
+              <div className='allowBox'>{allowList}</div>
             </div>
           </ListContainer>
           <TeamContainer>
-            <div className="teamWrap">
-              <div className="teamTop">
+            <div className='teamWrap'>
+              <div className='teamTop'>
                 <span>팀 관리하기</span>
                 <img src={setting}></img>
               </div>
-              <div className="teamName">
+              <div className='teamName'>
                 <ul>
                   <li>도란도란개발팀</li>
                   <li>ICT</li>
