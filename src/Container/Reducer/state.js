@@ -60,17 +60,17 @@ export const initState = {
     },
     {
       id: 3,
-      name: "3층 홈베이스",
-      classtime: [8, 10],
+      name: "3층 네트워크실",
+      classtime: [9, 10],
       team: "도란도란개발팀",
-      allow: 1,
+      allow: 3,
     },
     {
       id: 4,
-      name: "3층 홈베이스",
-      classtime: [10, 11],
+      name: "3층 네트워크실",
+      classtime: [9, 10],
       team: "도란도란개발팀",
-      allow: 3,
+      allow: 2,
     },
   ],
 };

@@ -40,7 +40,6 @@ export const MyRoomContainer = styled.div`
   margin: 10px 0;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
   justify-content: space-between;
 `;
 
@@ -52,12 +51,10 @@ export const MyRoom = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 0;
   .wrap {
     width: 90%;
-    height: 140px;
+    height: 105px;
     display: flex;
-    align-items: center;
     img {
       width: 150px;
       height: 105px;
@@ -119,12 +116,8 @@ export const ListContainer = styled.div`
         margin-left: 15px;
       }
     }
-    .allowBox {
-      width: 100%;
-      overflow: scroll;
-    }
     .listContainer {
-      width: 90%;
+      width: 95%;
       height: 60px;
       display: flex;
       justify-content: space-between;
@@ -134,7 +127,6 @@ export const ListContainer = styled.div`
       font-size: 20px;
       font-weight: bold;
       box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-      margin: 15px 0;
     }
     .refusal {
       background-color: #ff4d4d;
@@ -180,12 +172,12 @@ export const TeamContainer = styled.div`
         height: 25px;
       }
     }
-    .teamName {
+    .teamName{
       width: 100%;
       height: 60px;
       display: flex;
       justify-content: space-between;
-      ul {
+      ul{
         width: 40%;
         padding-left: 20px;
       }

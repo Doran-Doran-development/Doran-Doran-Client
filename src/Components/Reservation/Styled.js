@@ -4,7 +4,7 @@ import arrow from "../../img/arrow.png";
 
 export const ReservationWrapper = styled.div`
   width: 100vw;
-  height: 540px;
+  height: 556px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,15 +57,16 @@ export const TimeButtonBox = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  .row {
-    display: flex;
-    justify-content: space-between;
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 46%);
+    gap: 20px 9%;
     padding: 5% 0 0 0;
   }
 `;
 
 export const Buttons = styled.button`
-  width: 46%;
+  width: 100%;
   height: 50px;
   border-radius: 10px;
   font-size: 20px;
