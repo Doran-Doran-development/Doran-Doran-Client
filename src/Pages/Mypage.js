@@ -1,9 +1,11 @@
 import React from "react";
-import My from "../Components/My/My";
+import My from "../Components/Mypage/My";
 
 const Mypage = () => {
   return (
-    <My/>
+    <div>
+      <My />
+    </div>
   );
 };
 

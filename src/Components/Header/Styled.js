@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-//#region 1.Header Style
 export const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -25,12 +24,12 @@ export const LogoContainer = styled.div`
 `;
 
 export const SearchContainer = styled.div`
-  height: 45px;
-  width: 368px;
+  height: 50px;
   display: flex;
   border: 2px solid #025f94;
-  border-radius: 25px;
+  border-radius: 50px;
   input {
+    width: 200px;
     border: 0;
   }
   span {
@@ -66,19 +65,19 @@ export const InfoContainer = styled.div`
   );
   div {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 200px;
     img {
       width: 30px;
       height: 30px;
     }
-    span {
-      color: white;
-      align-self: center;
-      font-size: 14px;
-      strong {
-        font-size: 20px;
-      }
+  }
+  span {
+    color: white;
+    align-self: center;
+    font-size: 14px;
+    strong {
+      font-size: 20px;
     }
   }
   button {

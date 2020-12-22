@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { BiUser, BiLock, BiX, BiDialpadAlt } from "react-icons/bi";
+import { BiUser, BiLock, BiX, BiIdCard } from "react-icons/bi";
+import Auth from "../../asset/api/Auth";
 import Logo from "../../img/logo_re.png";
 import {
   CloseBtn,
@@ -8,59 +9,55 @@ import {
   LoginWrapper,
   LogoContainer,
 } from "../Login/Style";
-import {
-  SelectFormContainer,
-  SelectFormTextWrapper,
-  SelectItem,
-} from "./Styled";
+import SelectForm from "./SelectForm/SelectForm";
 
-const SelectForm = ({ setSelect, setRegOpen }) => {
+const Register = ({ setRegOpen, history }) => {
+  const [select, setSelect] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [rePassword, setRePassword] = useState("");
+  const [name, setName] = useState("");
+  const [role, setRole] = useState(0);
+  function isEmail(asValue) {
+    var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+    return regExp.test(asValue);
+  }
+  function isPassword(asValue) {
+    var regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,20}$/;
+    return regExp.test(asValue);
+  }
+  const formCheck = () => {
+    if (isEmail(email)) {
+      if (isPassword(password)) {
+        if (password === rePassword) {
+          handleRegister();
+        } else {
+          alert("비밀번호가 다릅니다.");
+        }
+      } else {
+        alert("비밀번호는 8 ~ 20자 숫자,  영문 조합입니다.");
+      }
+    } else {
+      alert("이메일의 형식이 옳지 않습니다");
+    }
+  };
+  const handleRegister = () => {
+    Auth.register(email, name, password, role).then((response) => {
+      if (response.data) {
+        alert("회원가입 성공");
+        setRegOpen(false);
+      }
+    });
+  };
   return (
     <LoginWrapper>
       <CloseBtn onClick={setRegOpen}>
         <BiX style={{ fontSize: "2.5vw" }} />
       </CloseBtn>
-      <SelectFormTextWrapper>
-        <span>선택해주세요.</span>
-      </SelectFormTextWrapper>
-      <SelectFormContainer>
-        <SelectItem
-          onClick={() => {
-            setSelect(true);
-          }}
-        >
-          <label>
-            <input type="radio" />
-            학생
-          </label>
-        </SelectItem>
-        <SelectItem
-          onClick={() => {
-            setSelect(true);
-          }}
-          props={true}
-        >
-          <label className="teacher">
-            <input type="radio" />
-            교사
-          </label>
-        </SelectItem>
-      </SelectFormContainer>
-    </LoginWrapper>
-  );
-};
-
-const Register = ({ setRegOpen }) => {
-  const [select, setSelect] = useState(false);
-  return (
-    <LoginWrapper>
       {!select ? (
-        <SelectForm setSelect={setSelect} />
+        <SelectForm setRole={setRole} setRegOpen={setSelect} />
       ) : (
         <>
-          <CloseBtn onClick={setRegOpen}>
-            <BiX style={{ fontSize: "2.5vw" }} />
-          </CloseBtn>
           <LogoContainer>
             <img src={Logo} alt="logo" />
           </LogoContainer>
@@ -73,7 +70,30 @@ const Register = ({ setRegOpen }) => {
                 padding: "0 1vw 0 1vw",
               }}
             />
-            <input type="text" placeholder="아이디" />
+            <input
+              type="email"
+              placeholder="이메일"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+          </InputContainer>
+          <InputContainer>
+            <BiIdCard
+              style={{
+                fontSize: "2vw",
+                color: "gray",
+                alignSelf: "center",
+                padding: "0 1vw 0 1vw",
+              }}
+            />
+            <input
+              type="text"
+              placeholder="이름"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </InputContainer>
           <InputContainer>
             <BiLock
@@ -84,7 +104,12 @@ const Register = ({ setRegOpen }) => {
                 padding: "0 1vw 0 1vw",
               }}
             />
-            <input type="text" placeholder="비밀번호" />
+            <input
+              type="password"
+              placeholder="비밀번호"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </InputContainer>
           <InputContainer>
             <BiLock
@@ -95,20 +120,14 @@ const Register = ({ setRegOpen }) => {
                 padding: "0 1vw 0 1vw",
               }}
             />
-            <input type="text" placeholder="비밀번호 확인" />
-          </InputContainer>
-          <InputContainer>
-            <BiDialpadAlt
-              style={{
-                fontSize: "2vw",
-                color: "gray",
-                alignSelf: "center",
-                padding: "0 1vw 0 1vw",
-              }}
+            <input
+              type="password"
+              placeholder="비밀번호 확인"
+              value={rePassword}
+              onChange={(e) => setRePassword(e.target.value)}
             />
-            <input type="text" placeholder="전화번호" />
           </InputContainer>
-          <LoginBtn style={{ marginBottom: "90px" }}>
+          <LoginBtn style={{ marginBottom: "90px" }} onClick={formCheck}>
             <span>회원가입</span>
           </LoginBtn>
         </>

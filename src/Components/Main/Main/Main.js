@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import logo from "../../../img/logo_re.png";
 import TogglePopUpTemplete from "../Modal/TogglePopupTemplete";
 import {
@@ -13,6 +14,13 @@ import {
 const Main = () => {
   const [loginOpen, setLoginOpen] = useState(false);
   const [regOpen, setRegOpen] = useState(false);
+  const history = useHistory();
+  useEffect(() => {
+    const token = window.localStorage.getItem("token");
+    if (token) {
+      history.push("/Home", "");
+    }
+  });
   return (
     <MainWrapper>
       <LogoWrapper>
