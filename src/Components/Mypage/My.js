@@ -9,30 +9,17 @@ import {
   ListContainer,
   TeamContainer,
 } from "./Styled";
-import room1 from "../../img/room1.png";
 import checked from "../../img/checked.png";
 import setting from "../../img/settings.png";
 import { useRoomState } from "../../Container/Context/Context";
+import RoomItem from "./RoomItem/RoomItem";
 
 const My = () => {
   const state = useRoomState();
   const myRooms = state.teacherRoom
     .filter(item => state.userInfo.cur_team.indexOf(item.team) !== -1)
     .map(({ name, classtime, team }) => {
-      return (
-        <MyRoom>
-          <div className='wrap'>
-            <img src={room1}></img>
-            <div className='textBox'>
-              <div className='roomName'>{name}</div>
-              <div className='time'>
-                {classtime[0]} ~ {classtime[1]} 교시
-              </div>
-              <div className='teamName'>{team}</div>
-            </div>
-          </div>
-        </MyRoom>
-      );
+      return <RoomItem name={name} classtime={classtime} team={team} />;
     });
   const allowList = state.teacherRoom
     .filter(item => state.userInfo.cur_team.indexOf(item.team) !== -1)
@@ -48,7 +35,11 @@ const My = () => {
         </div>
       );
     });
-
+  const myTeams = state.userInfo.cur_team.map((team) => {
+    if (state.userInfo.cur_team.indexOf(team) % 2 === 0) {
+      return;
+    }
+  });
   return (
     <MyPageWrapper>
       <MyContentBox>

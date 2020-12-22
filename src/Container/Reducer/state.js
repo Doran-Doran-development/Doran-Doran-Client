@@ -32,6 +32,15 @@ export const initState = {
       create_at: "2020-12-16",
       owner: "teacher2@gsm.hs.kr",
     },
+    {
+      id: 3,
+      name: "3층 홈베이스",
+      max_team: 5,
+      cur_team: [3, 3, 2, 1],
+      status: true,
+      create_at: "2020-12-15",
+      owner: "teacher3@gsm.hs.kr",
+    },
   ],
   team: [{ id: 1, name: "ICT", roomList: [2], mate: ["s19053@gsm.hs.kr"] }],
   teacherRoom: [
