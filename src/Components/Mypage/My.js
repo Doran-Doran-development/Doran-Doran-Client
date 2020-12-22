@@ -35,11 +35,6 @@ const My = () => {
         </div>
       );
     });
-  const myTeams = state.userInfo.cur_team.map((team) => {
-    if (state.userInfo.cur_team.indexOf(team) % 2 === 0) {
-      return;
-    }
-  });
   return (
     <MyPageWrapper>
       <MyContentBox>
@@ -54,7 +49,7 @@ const My = () => {
                 <span>승인 목록</span>
                 <img src={checked}></img>
               </div>
-              {allowList}
+              <div className="allowBox">{allowList}</div>
             </div>
           </ListContainer>
           <TeamContainer>

@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
-//#region 1.Header Style
 export const HeaderWrapper = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   height: 120px;
-  .search{
-    width:600px;
-    display:flex;
+  padding: 0 50px;
+  .search {
+    width: 600px;
+    display: flex;
     justify-content: flex-end;
   }
 `;
@@ -18,8 +18,8 @@ export const LogoContainer = styled.div`
   justify-content: center;
   align-items: center;
   img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
   }
 `;
 
@@ -27,9 +27,10 @@ export const SearchContainer = styled.div`
   height: 50px;
   width: 368px;
   display: flex;
-  border: 3px solid #025f94;
-  border-radius: 5px;
+  border: 2px solid #025f94;
+  border-radius: 50px;
   input {
+    width: 200px;
     border: 0;
   }
   span {
@@ -49,8 +50,8 @@ export const SearchContainer = styled.div`
   }
 `;
 export const InfoContainer = styled.div`
-  width: 460px;
-  height: 75px;
+  width: 350px;
+  height: 60px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -63,17 +64,22 @@ export const InfoContainer = styled.div`
     #1482aa 83.62%,
     #15a6af 108.5%
   );
-  div{
-    display:flex;
-    justify-content:space-between;
-    width:260px;
+  div {
+    display: flex;
+    justify-content: space-around;
+    width: 200px;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
   }
   span {
     color: white;
     align-self: center;
-    font-size: 18px;
+    font-size: 14px;
     strong {
-      font-size: 24px;
+      font-size: 20px;
     }
   }
   button {
@@ -95,7 +101,7 @@ export const RouterWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  border-bottom: 1px solid #829CAC;
+  border-bottom: 1px solid #829cac;
   .line {
     height: 30px;
     border-right: 2px solid #e5e5e5;
