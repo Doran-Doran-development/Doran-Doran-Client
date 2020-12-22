@@ -30,7 +30,7 @@ const Reservation = () => {
     history.push("/LookUp");
   };
   console.log(is_full, state.select_room);
-  const timeSelection = (time) => {
+  const timeSelection = time => {
     switch (time) {
       case 8:
         const btn8 = document.getElementById("btn8");
@@ -89,13 +89,13 @@ const Reservation = () => {
         <Line></Line>
         <ContentBox>
           <TextBox>
-            <span id="roomName">{name}</span>
-            <span id="people">수용인원 : {max_team}팀</span>
+            <span id='roomName'>{name}</span>
+            <span id='people'>수용인원 : {max_team}팀</span>
           </TextBox>
           <TimeButtonBox>
-            <div className="row">
+            <div className='grid'>
               <Buttons
-                id="btn8"
+                id='btn8'
                 is_full={is_full[0]}
                 select={class8}
                 onClick={() => {
@@ -108,7 +108,7 @@ const Reservation = () => {
                 8 교시
               </Buttons>
               <Buttons
-                id="btn9"
+                id='btn9'
                 select={class9}
                 is_full={is_full[1]}
                 onClick={() => {
@@ -120,10 +120,8 @@ const Reservation = () => {
               >
                 9 교시
               </Buttons>
-            </div>
-            <div className="row">
               <Buttons
-                id="btn10"
+                id='btn10'
                 select={class10}
                 is_full={is_full[2]}
                 onClick={() => {
@@ -136,7 +134,7 @@ const Reservation = () => {
                 10 교시
               </Buttons>
               <Buttons
-                id="btn11"
+                id='btn11'
                 select={class11}
                 is_full={is_full[3]}
                 onClick={() => {
@@ -151,10 +149,10 @@ const Reservation = () => {
             </div>
           </TimeButtonBox>
           <SelectBox>
-            <select name="team" className="selectTeam">
+            <select name='team' className='selectTeam'>
               <option selected>팀을 선택해주세요</option>
-              <option value="ict">ICT</option>
-              <option value="bts">BTS</option>
+              <option value='ict'>ICT</option>
+              <option value='bts'>BTS</option>
             </select>
           </SelectBox>
           <ReservationBtn onClick={handleReserve}>예약하기</ReservationBtn>
