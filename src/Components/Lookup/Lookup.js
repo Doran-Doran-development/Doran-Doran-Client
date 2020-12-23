@@ -11,6 +11,7 @@ import {
 } from "./Styled";
 import { useRoomState, useRoomDispatch } from "../../Container/Context/Context";
 import { roomSelect } from "../../Container/Actions";
+import { getRoom } from "../../Container/Actions/Room";
 
 const RoomItem = ({ id, roomname, max_team, status, handleReserve }) => {
   return (
@@ -38,20 +39,33 @@ const LookUp = () => {
   const history = useHistory();
   const state = useRoomState();
   const dispatch = useRoomDispatch();
+  const [roomlist, setList] = useState([]);
+  useEffect(() => {
+    RoomAPI.loadRoom().then((res) => {
+      console.log(res.data);
+      setList(...res.data);
+    });
+  }, []);
   const handleReserve = (id) => {
     dispatch(roomSelect(id));
     history.push("/Reservation");
   };
-  const rooms = state.roomInfo.map(({ id, name, max_team, status }) => (
-    <RoomItem
-      key={id}
-      id={id}
-      roomname={name}
-      max_team={max_team}
-      status={status}
-      handleReserve={handleReserve}
-    />
-  ));
+
+  console.log("room", state.roomInfo);
+
+  const rooms = roomlist.map(
+    ({ id, name, max_team, status, created_at, owner }) => (
+      <RoomItem
+        key={id}
+        id={id}
+        roomname={name}
+        max_team={max_team}
+        status={status}
+        handleReserve={handleReserve}
+      />
+    )
+  );
+  console.log(rooms);
   return <LookUpWrapper>{rooms}</LookUpWrapper>;
 };
 

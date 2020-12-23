@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import RoomAPI from "../../asset/api/RoomAPI";
 import { useRoomState } from "../../Container/Context/Context";
 import ClassTimeItem from "./ClassTimeItem/ClassTimeItem";
@@ -13,7 +13,6 @@ import {
   TimeButtonBox,
   SelectBox,
   ReservationBtn,
-  Buttons,
 } from "./Styled";
 
 const Reservation = () => {
