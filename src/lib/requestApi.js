@@ -41,4 +41,5 @@ export const Team = {
   createTeam: () => {
     return `/team`;
   }, //POST 팀 생성
+
 };

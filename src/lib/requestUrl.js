@@ -1,6 +1,7 @@
 import axios from "axios";
 import { BASE_URL } from "../config/config.json";
 import { AUTH } from "./requestApi";
+
 export const methodType = {
   GET: "get",
   POST: "post",
@@ -105,6 +106,7 @@ export const requestApiWithBodyWithToken = async (
   }
 };
 
+
 export const refreshToken = async () => {
   try {
     const refreshToken = window.localStorage.getItem(REFRESH_TOKEN);
@@ -113,3 +115,4 @@ export const refreshToken = async () => {
     throw new Error(error);
   }
 };
+
