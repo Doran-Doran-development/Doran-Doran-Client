@@ -2,7 +2,7 @@ import combineReducers from "../combineReducers";
 import roomReducer from "./Room";
 
 export const initState = {
-  select_room: 1,
+  select_room: 0,
   userInfo: {
     email: "s19053@gsm.hs.kr",
     name: "정한빈",
@@ -21,6 +21,22 @@ export const initState = {
     {
       id: 2,
       name: "2층 홈베이스",
+      max_team: 3,
+      status: true,
+      created_at: "2020-12-16",
+      owner: "teacher2@gsm.hs.kr",
+    },
+    {
+      id: 3,
+      name: "1층 마이크로프로세서실",
+      max_team: 2,
+      status: true,
+      created_at: "2020-12-14",
+      owner: "teacher1@gsm.hs.kr",
+    },
+    {
+      id: 4,
+      name: "4층 홈베이스",
       max_team: 3,
       status: true,
       created_at: "2020-12-16",

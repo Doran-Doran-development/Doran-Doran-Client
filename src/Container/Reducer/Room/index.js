@@ -9,22 +9,18 @@ import { initState } from "../state";
 const roomReducer = (state = initState, action) => {
   switch (action.type) {
     case Room_GET:
-      console.log(...action.roomList);
-      return Object.assign({}, state, {
-        roomInfo: state.roomInfo.concat(...state.roomInfo, ...action.roomList),
-      });
+      return Object.assign({}, state, {});
     case Room_RESERVE:
       return Object.assign({}, state, {});
     case Room_ALLOW:
       return Object.assign({}, state, {});
     case Room_SELECT:
+      console.log("asdasdasdasd", action.id);
       return Object.assign({}, state, {
-        select_room:
-          state.roomInfo[
-            state.roomInfo.findIndex((item) => item.id === action.id)
-          ],
+        select_room: state.roomInfo.findIndex((item) => item.id === action.id),
       });
     default:
+      return Object.assign({}, state, {});
   }
 };
 export default roomReducer;

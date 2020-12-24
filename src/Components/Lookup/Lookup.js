@@ -10,8 +10,7 @@ import {
   TitleText,
 } from "./Styled";
 import { useRoomState, useRoomDispatch } from "../../Container/Context/Context";
-import { roomSelect } from "../../Container/Actions";
-import { getRoom } from "../../Container/Actions/Room";
+import { getRoom, roomSelect } from "../../Container/Actions/Room";
 
 const RoomItem = ({ id, roomname, max_team, status, handleReserve }) => {
   return (
@@ -38,22 +37,20 @@ const RoomItem = ({ id, roomname, max_team, status, handleReserve }) => {
 const LookUp = () => {
   const history = useHistory();
   const state = useRoomState();
+  console.log("lookup", state);
+  const { roomInfo } = state;
   const dispatch = useRoomDispatch();
   const [roomlist, setList] = useState([]);
   useEffect(() => {
-    RoomAPI.loadRoom().then((res) => {
-      console.log(res.data);
-      setList(...res.data);
-    });
+    dispatch(getRoom());
   }, []);
   const handleReserve = (id) => {
+    console.log("id", id);
     dispatch(roomSelect(id));
     history.push("/Reservation");
   };
 
-  console.log("room", state.roomInfo);
-
-  const rooms = roomlist.map(
+  const rooms = roomInfo.map(
     ({ id, name, max_team, status, created_at, owner }) => (
       <RoomItem
         key={id}

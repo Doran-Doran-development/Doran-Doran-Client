@@ -1,5 +1,11 @@
 import React from "react";
-import { Route, Router, Switch, withRouter } from "react-router-dom";
+import {
+  Route,
+  Router,
+  Switch,
+  useHistory,
+  withRouter,
+} from "react-router-dom";
 import { Home, MainPage } from "./Pages";
 import { createBrowserHistory } from "history";
 import { createGlobalStyle } from "styled-components";
@@ -17,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 const App = () => {
+  const history = useHistory();
   return (
     <>
       <Router history={browserHistory}>
