@@ -28,18 +28,26 @@ export const RESERVATION = {
   }, // DELETE - 취소, GET - 예약세부정보, PATCH - 예약응답
 };
 
-export const Team = {
-  deleteTeam: (team_id) => {
-    return `/team/${team_id}`;
-  }, // DELETE 팀 삭제
-  userTeamInfo: (email) => {
-    return `/team/${email}`;
-  }, // GET 특정 유저의 팀 정보 확인
-  userTeam: (team_id, email) => {
-    return `/team/${team_id}/${email}`;
-  }, // PATCH 팀원 추가, DELETE 팀원 삭제
+export const TEAM = {
+  showTeam: () => {
+    return `/team/show`;
+  },
+  showDetailTeam: (team_id) => {
+    return `/team/show/${team_id}`;
+  },
   createTeam: () => {
     return `/team`;
   }, //POST 팀 생성
-
+  deleteTeam: (team_id) => {
+    return `/team/${team_id}`;
+  }, // DELETE 팀 삭제
+  addMember: () => {
+    return `/team/member`;
+  }, // POST 팀원추가
+  delMember: (link_id) => {
+    return `/team/member/${link_id}`;
+  }, //  DELETE 팀원 삭제
+  userTeamInfo: () => {
+    return `/team/member`;
+  }, //GET 특정 유저의 가입 된 팀 내역 확인
 };
