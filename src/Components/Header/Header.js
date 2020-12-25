@@ -46,7 +46,7 @@ const RouterContainer = ({ history, pathname }) => {
   );
 };
 
-const Header = ({ history, location, username, handleLogout }) => {
+const Header = ({ history, username, handleLogout }) => {
   return (
     <>
       <HeaderWrapper>

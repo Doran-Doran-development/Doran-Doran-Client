@@ -7,6 +7,7 @@ export const methodType = {
   POST: "post",
   DELETE: "delete",
   PATCH: "patch",
+  PUT: "put",
 };
 export const ACCESS_TOKEN_NAME = "Authorization";
 export const ACCESS_TOKEN = "accessToken";
