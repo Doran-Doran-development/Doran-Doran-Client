@@ -71,7 +71,7 @@ const Header = ({ history, location, username, handleLogout }) => {
           <button onClick={handleLogout}>로그아웃</button>
         </InfoContainer>
       </HeaderWrapper>
-      <RouterContainer history={history} pathname={location.pathname} />
+      <RouterContainer history={history} pathname={window.location.pathname} />
     </>
   );
 };

@@ -23,7 +23,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 const App = () => {
-  const history = useHistory();
   return (
     <>
       <Router history={browserHistory}>
