@@ -54,7 +54,9 @@ const Reservation = () => {
             <span id="roomName">{name}</span>
             <span id="people">수용인원 : {max_team}팀</span>
           </TextBox>
-          <TimeButtonBox>{buttons}</TimeButtonBox>
+          <TimeButtonBox>
+            <div className="grid">{buttons}</div>
+          </TimeButtonBox>
           <SelectBox>
             <select
               name="team"

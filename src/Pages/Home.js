@@ -11,9 +11,9 @@ const Home = () => {
   const history = useHistory();
   console.log(history);
   const state = useRoomState();
-  useEffect(() => {
-    Auth.loadInfo().then((res) => {});
-  }, [userInfo]);
+  // useEffect(() => {
+  //   Auth.loadInfo().then((res) => {});
+  // }, [userInfo]);
   const handleLogout = () => {
     window.localStorage.clear();
     alert("로그아웃 되었습니다");
