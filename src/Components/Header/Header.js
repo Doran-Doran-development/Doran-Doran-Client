@@ -1,6 +1,5 @@
 import React from "react";
 import { BiCaretDown, BiSearch } from "react-icons/bi";
-import { useHistory } from "react-router-dom";
 import Logo from "../../img/logo_re.png";
 import Profile from "../../img/worker_1.png";
 import {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { roomSelect } from "../../Container/Actions/Room";
 import { useRoomDispatch, useRoomState } from "../../Container/Context/Context";
@@ -18,13 +18,14 @@ import {
 const classtime = [8, 9, 10, 11];
 
 const Reservation = () => {
+  const [team, setTeam] = useState("");
   const state = useRoomState();
   console.log("reservation", state);
   let is_full = [false, false, false, false];
   const history = useHistory();
   const handleReserve = () => {
     alert("예약이 신청되었습니다.");
-    history.push("/LookUp");
+    history.push("/Lookup");
   };
   const { select_room, userInfo, roomInfo } = state;
   const dispatch = useRoomDispatch();
@@ -33,7 +34,14 @@ const Reservation = () => {
     select_room
   ];
   const teamOptions = userInfo.cur_team.map((team) => (
-    <option value={`team`}>{team}</option>
+    <option
+      value={`${team}`}
+      onClick={() => {
+        setTeam(team);
+      }}
+    >
+      {team}
+    </option>
   ));
   const buttons = classtime.map((t) => <ClassTimeItem time={t} />);
   return (
@@ -48,7 +56,14 @@ const Reservation = () => {
           </TextBox>
           <TimeButtonBox>{buttons}</TimeButtonBox>
           <SelectBox>
-            <select name="team" className="selectTeam">
+            <select
+              name="team"
+              className="selectTeam"
+              value={team}
+              onChange={(e) => {
+                setTeam(e.target.value);
+              }}
+            >
               <option selected>팀을 선택해주세요</option>
               {teamOptions}
             </select>

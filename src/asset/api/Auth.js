@@ -26,19 +26,12 @@ class Auth {
       throw new Error(error);
     }
   }
-  async register(email, name, password, role) {
+  async changeToken() {
     try {
-      const body = {
-        email,
-        password,
-        name,
-        role,
-      };
-      const response = requestApiWithBodyWithoutToken(
+      const response = requestApiWithoutBodyWithToken(
         BASE_URL,
         methodType.POST,
-        AUTH.register(),
-        body,
+        AUTH.changeToken(),
         {}
       );
       return response;
@@ -46,20 +39,6 @@ class Auth {
       throw new Error(error);
     }
   }
-  async loadInfo() {
-    try {
-      const response = requestApiWithoutBodyWithToken(
-        BASE_URL,
-        methodType.GET,
-        AUTH.loadInfo(),
-        { "Content-Type": "application/json" }
-      );
-      return response;
-    } catch (error) {
-      throw new Error(error);
-    }
-  }
-  async checkToken() {}
 }
 
 export default new Auth();

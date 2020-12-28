@@ -2,14 +2,29 @@ export const AUTH = {
   login: () => {
     return `/auth/login`;
   },
-  loadInfo: () => {
-    return `/auth/my-info`;
-  },
-  register: () => {
-    return `/auth/sign-up`;
+  changeToken: () => {
+    return `/auth/refresh`;
   },
 };
-
+const USER_BASE = `/auth/users/`;
+export const USER = {
+  user: () => {
+    return `${USER_BASE}`; // POST면 유저 생성, GET이면 유저 조회(단체)
+  },
+  userInfo: (uid) => {
+    return `${USER_BASE}${uid}`;
+    // GET - 유저 정보 조회 (단일)
+    //DELETE - 유저 삭제 (모두)
+  },
+  changeUser: (uid) => {
+    return `${USER_BASE}${uid}/change-name`;
+    //PATCH - 유저 이름 변경
+  },
+  changePassword: (uid) => {
+    return `${USER_BASE}${uid}/change-password`;
+    //PATCH - 유저 패스워드 변경
+  },
+};
 export const CONFERENCE = {
   room: () => {
     return `/room`;
