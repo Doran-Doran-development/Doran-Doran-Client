@@ -55,12 +55,11 @@ export const TextBox = styled.div`
 
 export const TimeButtonBox = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   .grid {
     display: grid;
     grid-template-columns: repeat(2, 46%);
-    gap: 20px 9%;
+    gap: 20px 8%;
     padding: 5% 0 0 0;
   }
 `;

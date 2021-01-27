@@ -1,6 +1,5 @@
 import React from "react";
 import { BiCaretDown, BiSearch } from "react-icons/bi";
-import { Link, useHistory } from "react-router-dom";
 import Logo from "../../img/logo_re.png";
 import Profile from "../../img/worker_1.png";
 import {
@@ -11,39 +10,42 @@ import {
   RouterWrapper,
 } from "./Styled";
 
-const RouterContainer = () => {
-  const history = useHistory();
-  const { pathname } = history.location;
-
+const RouterContainer = ({ history, pathname }) => {
   return (
     <RouterWrapper>
-      <Link
-        to="/Lookup"
+      <div
+        onClick={() => {
+          history.push("/Lookup");
+        }}
         className={`link ${pathname === "/Lookup" && "select"}`}
       >
         회의실 둘러보기
-      </Link>
+      </div>
       <div className={"line"} />
-      <Link
-        to="/Reservation"
+      <div
+        onClick={() => {
+          history.push("/Reservation");
+        }}
         className={`link ${pathname === "/Reservation" && "select"}`}
       >
         회의실 예약하기
-      </Link>
+      </div>
       <div className={"line"} />
-      <Link
-        to="/Mypage"
+      <div
+        onClick={() => {
+          history.push("/Mypage");
+        }}
         className={`link ${pathname === "/Mypage" && "select"}`}
       >
         마이페이지
-      </Link>
+      </div>
       <div className={"line"} />
       <div className={"space"} />
     </RouterWrapper>
   );
 };
 
-const Header = ({ username, handleLogout }) => {
+const Header = ({ history, username, handleLogout }) => {
   return (
     <>
       <HeaderWrapper>
@@ -68,7 +70,7 @@ const Header = ({ username, handleLogout }) => {
           <button onClick={handleLogout}>로그아웃</button>
         </InfoContainer>
       </HeaderWrapper>
-      <RouterContainer />
+      <RouterContainer history={history} pathname={window.location.pathname} />
     </>
   );
 };

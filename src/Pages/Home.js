@@ -9,19 +9,25 @@ const Home = () => {
   const [userInfo, setUserInfo] = useState("");
   const location = useLocation();
   const history = useHistory();
+  console.log(history);
   const state = useRoomState();
-  useEffect(() => {
-    Auth.loadInfo().then((res) => {});
-  }, [userInfo]);
+  // useEffect(() => {
+  //   Auth.loadInfo().then((res) => {});
+  // }, [userInfo]);
   const handleLogout = () => {
     window.localStorage.clear();
     alert("로그아웃 되었습니다");
-    history.push("/");
+    history.push("/Lookup");
   };
   return (
     <div>
-      <Header username={userInfo.name} handleLogout={handleLogout} />
-      <Routes state={state} />
+      <Header
+        username={userInfo.name}
+        handleLogout={handleLogout}
+        history={history}
+        location={location}
+      />
+      <Routes />
       <Footer />
     </div>
   );

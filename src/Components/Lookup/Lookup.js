@@ -10,7 +10,7 @@ import {
   TitleText,
 } from "./Styled";
 import { useRoomState, useRoomDispatch } from "../../Container/Context/Context";
-import { roomSelect } from "../../Container/Actions";
+import { getRoom, roomSelect } from "../../Container/Actions/Room";
 
 const RoomItem = ({ id, roomname, max_team, status, handleReserve }) => {
   return (
@@ -37,21 +37,32 @@ const RoomItem = ({ id, roomname, max_team, status, handleReserve }) => {
 const LookUp = () => {
   const history = useHistory();
   const state = useRoomState();
+  console.log("lookup", state);
+  const { roomInfo } = state;
   const dispatch = useRoomDispatch();
+  const [roomlist, setList] = useState([]);
+  useEffect(() => {
+    dispatch(getRoom());
+  }, []);
   const handleReserve = (id) => {
+    console.log("id", id);
     dispatch(roomSelect(id));
     history.push("/Reservation");
   };
-  const rooms = state.roomInfo.map(({ id, name, max_team, status }) => (
-    <RoomItem
-      key={id}
-      id={id}
-      roomname={name}
-      max_team={max_team}
-      status={status}
-      handleReserve={handleReserve}
-    />
-  ));
+
+  const rooms = roomInfo.map(
+    ({ id, name, max_team, status, created_at, owner }) => (
+      <RoomItem
+        key={id}
+        id={id}
+        roomname={name}
+        max_team={max_team}
+        status={status}
+        handleReserve={handleReserve}
+      />
+    )
+  );
+  console.log(rooms);
   return <LookUpWrapper>{rooms}</LookUpWrapper>;
 };
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
-import RoomAPI from "../../asset/api/RoomAPI";
-import { useRoomState } from "../../Container/Context/Context";
+import { useHistory } from "react-router-dom";
+import { roomSelect } from "../../Container/Actions/Room";
+import { useRoomDispatch, useRoomState } from "../../Container/Context/Context";
 import ClassTimeItem from "./ClassTimeItem/ClassTimeItem";
 import {
   ContentWrapper,
@@ -13,25 +13,35 @@ import {
   TimeButtonBox,
   SelectBox,
   ReservationBtn,
-  Buttons,
 } from "./Styled";
 
+const classtime = [8, 9, 10, 11];
+
 const Reservation = () => {
-  const classtime = [8, 9, 10, 11];
+  const [team, setTeam] = useState("");
   const state = useRoomState();
-  const [roomInfo, setInfo] = useState(state.select_room);
+  console.log("reservation", state);
   let is_full = [false, false, false, false];
   const history = useHistory();
-  const cur_r = state.roomInfo[state.select_room];
   const handleReserve = () => {
     alert("예약이 신청되었습니다.");
-    history.push("/LookUp");
+    history.push("/Lookup");
   };
-  console.log(is_full, state.select_room);
-
-  const { id, name, max_team, cur_team, status, create_at, owner } = roomInfo;
-  const teamOptions = state.userInfo.cur_team.map((team) => (
-    <option value={`team`}>{team}</option>
+  const { select_room, userInfo, roomInfo } = state;
+  const dispatch = useRoomDispatch();
+  console.log(state, state.select_room);
+  const { id, name, max_team, status, create_at, owner } = roomInfo[
+    select_room
+  ];
+  const teamOptions = userInfo.cur_team.map((team) => (
+    <option
+      value={`${team}`}
+      onClick={() => {
+        setTeam(team);
+      }}
+    >
+      {team}
+    </option>
   ));
   const buttons = classtime.map((t) => <ClassTimeItem time={t} />);
   return (
@@ -44,9 +54,18 @@ const Reservation = () => {
             <span id="roomName">{name}</span>
             <span id="people">수용인원 : {max_team}팀</span>
           </TextBox>
-          <TimeButtonBox>{buttons}</TimeButtonBox>
+          <TimeButtonBox>
+            <div className="grid">{buttons}</div>
+          </TimeButtonBox>
           <SelectBox>
-            <select name="team" className="selectTeam">
+            <select
+              name="team"
+              className="selectTeam"
+              value={team}
+              onChange={(e) => {
+                setTeam(e.target.value);
+              }}
+            >
               <option selected>팀을 선택해주세요</option>
               {teamOptions}
             </select>

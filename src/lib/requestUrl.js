@@ -7,6 +7,7 @@ export const methodType = {
   POST: "post",
   DELETE: "delete",
   PATCH: "patch",
+  PUT: "put",
 };
 export const ACCESS_TOKEN_NAME = "Authorization";
 export const ACCESS_TOKEN = "accessToken";
@@ -106,7 +107,6 @@ export const requestApiWithBodyWithToken = async (
   }
 };
 
-
 export const refreshToken = async () => {
   try {
     const refreshToken = window.localStorage.getItem(REFRESH_TOKEN);
@@ -115,4 +115,3 @@ export const refreshToken = async () => {
     throw new Error(error);
   }
 };
-

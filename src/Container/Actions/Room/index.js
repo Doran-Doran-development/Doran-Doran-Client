@@ -1,7 +1,7 @@
 export const Room_RESERVE = `Room_RESERVE`;
 export const Room_ALLOW = `Room_ALLOW`;
 export const Room_SELECT = `Room_SELECT`;
-export const Teacher_ALLOW = `Teacher_ALLOW`;
+export const Room_GET = `Room_GET`;
 
 export const roomReserve = (id, team, classtime) => {
   return {
@@ -27,10 +27,9 @@ export const roomSelect = (id) => {
   };
 };
 
-export const teacherAllow = (id, allow) => {
+export const getRoom = (roomList) => {
   return {
-    type: Teacher_ALLOW,
-    id,
-    allow,
+    type: Room_GET,
+    roomList,
   };
 };
