@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-//#region 1.Header Style
 export const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -64,11 +63,11 @@ export const InfoContainer = styled.div`
     #1482aa 83.62%,
     #15a6af 108.5%
   );
-  div{
-    display:flex;
-    justify-content:space-around;
-    width:200px;
-    img{
+  div {
+    display: flex;
+    justify-content: space-around;
+    width: 200px;
+    img {
       width: 30px;
       height: 30px;
     }

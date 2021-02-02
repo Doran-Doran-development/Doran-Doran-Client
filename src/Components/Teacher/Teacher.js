@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { teacherAllow } from "../../Container/Actions";
+import { roomAllow } from "../../Container/Actions/Room";
 import { useRoomDispatch, useRoomState } from "../../Container/Context/Context";
 import room1 from "../../img/room1.png";
 import { TeacherWrapper } from "./Style";
@@ -52,11 +52,11 @@ const Teacher = () => {
   const state = useRoomState();
   const dispatch = useRoomDispatch();
   const handleAllow = (id) => {
-    dispatch(teacherAllow(id, 2));
+    dispatch(roomAllow(id, 2));
     console.log(state);
   };
   const handleCancel = (id) => {
-    dispatch(teacherAllow(id, 3));
+    dispatch(roomAllow(id, 3));
   };
   const teacherRooms = state.teacherRoom.map((item) => (
     <TeacherItem

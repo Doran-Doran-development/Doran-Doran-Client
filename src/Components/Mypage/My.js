@@ -37,11 +37,6 @@ const My = () => {
         </div>
       );
     });
-  const myTeams = state.userInfo.cur_team.map((team) => {
-    if (state.userInfo.cur_team.indexOf(team) % 2 === 0) {
-      return;
-    }
-  });
   return (
     <MyPageWrapper>
       <MyContentBox>

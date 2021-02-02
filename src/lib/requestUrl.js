@@ -1,11 +1,13 @@
 import axios from "axios";
 import { BASE_URL } from "../config/config.json";
 import { AUTH } from "./requestApi";
+
 export const methodType = {
   GET: "get",
   POST: "post",
   DELETE: "delete",
   PATCH: "patch",
+  PUT: "put",
 };
 export const ACCESS_TOKEN_NAME = "Authorization";
 export const ACCESS_TOKEN = "accessToken";
