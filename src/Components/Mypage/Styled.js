@@ -192,3 +192,44 @@ export const TeamContainer = styled.div`
     }
   }
 `;
+
+export const Container = styled.div`
+  width: 800px;
+  height: 556px;
+  background-color: white;
+  border-radius: 15px;
+`;
+
+export const Top = styled.div`
+  width: 90%;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-between;
+  img {
+    width: 70px;
+    height: 70px;
+  }
+`;
+
+export const LookUpContent = styled.div`
+  width: 70%;
+  height: 71%;
+  overflow: scroll;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`
+
+export const RowBox = styled.div`
+  width: 100%;
+  height: 100px;
+  display:flex;
+  justify-content: space-between;
+`
+
+export const TeamBox = styled.div`
+  width: 45%;
+  height: 100%;
+  background-color: blue;
+`
