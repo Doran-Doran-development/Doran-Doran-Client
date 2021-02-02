@@ -6,6 +6,5 @@ import Header from "./Header/Header";
 import LookUp from "./Lookup/Lookup";
 import Footer from "./Footer/Footer";
 import Reservation from "./Reservation/Reservation";
-import My from "./Mypage/My";
 
-export { Main, Login, Register, Header, LookUp, Footer, Reservation, My };
+export { Main, Login, Register, Header, LookUp, Footer, Reservation };
