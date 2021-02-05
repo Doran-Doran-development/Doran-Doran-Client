@@ -7,7 +7,6 @@ export const TeacherWrapper = styled.div`
   margin: 20px;
   border-radius: 10px;
   width: 1161px;
-  height: 782px;
 
   background: #ffffff;
   box-shadow: 0px 3px 50px rgba(0, 0, 0, 0.05);
