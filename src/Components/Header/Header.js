@@ -45,7 +45,24 @@ const RouterContainer = ({ history, pathname }) => {
   );
 };
 
-const Header = ({ history, username, handleLogout }) => {
+const Header = ({ history, username, handleLogout, role }) => {
+  const userRouter =
+    role === 2 ? (
+      ""
+    ) : (
+      <RouterContainer history={history} pathname={window.location.pathname} />
+    );
+  const searchComponent =
+    role === 2 ? (
+      ""
+    ) : (
+      <SearchContainer>
+        <BiCaretDown className={"icon"} />
+        <input />
+        <span>교시</span>
+        <BiSearch className={"icon"} />
+      </SearchContainer>
+    );
   return (
     <>
       <HeaderWrapper>
@@ -53,12 +70,7 @@ const Header = ({ history, username, handleLogout }) => {
           <img src={Logo} alt="logo" />
         </LogoContainer>
         <div className="search">
-          <SearchContainer>
-            <BiCaretDown className={"icon"} />
-            <input />
-            <span>교시</span>
-            <BiSearch className={"icon"} />
-          </SearchContainer>
+          {searchComponent}
         </div>
         <InfoContainer>
           <div>
@@ -70,7 +82,7 @@ const Header = ({ history, username, handleLogout }) => {
           <button onClick={handleLogout}>로그아웃</button>
         </InfoContainer>
       </HeaderWrapper>
-      <RouterContainer history={history} pathname={window.location.pathname} />
+      {userRouter}
     </>
   );
 };
