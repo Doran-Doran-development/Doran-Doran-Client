@@ -10,7 +10,7 @@ import { Home, MainPage } from "./Pages";
 import { createBrowserHistory } from "history";
 import { createGlobalStyle } from "styled-components";
 import { RoomProvider } from "./Container/Context/Context";
-import Teacher from "./Components/Teacher/Teacher";
+import TeacherPage from "./Pages/Teacher";
 
 const browserHistory = createBrowserHistory();
 const GlobalStyle = createGlobalStyle`
@@ -31,7 +31,7 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={MainPage} />
             <Route path="/Home" component={Home} />
-            <Route path="/Teacher" component={Teacher} />
+            <Route path="/Teacher" component={TeacherPage} />
             <Route path="/Lookup" component={withRouter(Home)} />
             <Route path="/Reservation" component={withRouter(Home)} />
             <Route path="/Mypage" component={withRouter(Home)} />
