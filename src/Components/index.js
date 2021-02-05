@@ -6,5 +6,6 @@ import Header from "./Header/Header";
 import LookUp from "./Lookup/Lookup";
 import Footer from "./Footer/Footer";
 import Reservation from "./Reservation/Reservation";
+import Teacher from "./Teacher/Teacher"
 
-export { Main, Login, Register, Header, LookUp, Footer, Reservation };
+export { Main, Login, Register, Header, LookUp, Footer, Reservation, Teacher };
