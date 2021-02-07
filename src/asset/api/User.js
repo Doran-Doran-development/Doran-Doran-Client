@@ -11,6 +11,7 @@ class User {
   async register(email, name, password, role) {
     try {
       const body = {
+        uid : email,
         email,
         password,
         name,

@@ -10,8 +10,9 @@ class Auth {
   async login(email, password) {
     try {
       const body = {
+        uid : email,
         email,
-        password,
+        password
       };
       const config = {};
       const response = requestApiWithBodyWithoutToken(

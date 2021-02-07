@@ -44,12 +44,9 @@ export const RESERVATION = {
 };
 
 export const TEAM = {
-  showTeam: () => {
-    return `/team/show`;
-  },
-  showDetailTeam: (team_id) => {
-    return `/team/show/${team_id}`;
-  },
+  teamInfo : () => {
+    return `/team/`;
+  }, //GET  - 모든 팀 기본 정보 확인
   createTeam: () => {
     return `/team`;
   }, //POST 팀 생성
@@ -62,7 +59,7 @@ export const TEAM = {
   delMember: (link_id) => {
     return `/team/member/${link_id}`;
   }, //  DELETE 팀원 삭제
-  userTeamInfo: () => {
-    return `/team/member`;
+  allMember: (team_id) => {
+    return `/team/member/${team_id}/detailed/`;
   }, //GET 특정 유저의 가입 된 팀 내역 확인
 };

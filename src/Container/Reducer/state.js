@@ -78,4 +78,5 @@ export const initState = {
 
 export const reducer = combineReducers({
   room: roomReducer,
+  
 });

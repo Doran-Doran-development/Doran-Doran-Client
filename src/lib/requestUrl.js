@@ -30,6 +30,10 @@ export const requestApiWithBodyWithoutToken = async (
   try {
     const res = await axios[method](BASE_URL + url, body, {
       headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type,Authorization",
+        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,OPTIONS",
+        "Access-Control-Allow-Credentials": "true",
         ...header,
       },
     });
@@ -48,6 +52,10 @@ export const requestApiWithoutBodyWithoutToken = async (
   try {
     const res = await axios[method](BASE_URL + url, {
       headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type,Authorization",
+        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,OPTIONS",
+        "Access-Control-Allow-Credentials": "true",
         ...header,
       },
     });

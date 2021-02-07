@@ -1,18 +1,14 @@
 import React from "react";
 import {
   Route,
-  Router,
-  Switch,
-  useHistory,
-  withRouter,
+  BrowserRouter as Router,
+  Switch,  withRouter,
 } from "react-router-dom";
 import { Home, MainPage } from "./Pages";
-import { createBrowserHistory } from "history";
 import { createGlobalStyle } from "styled-components";
 import { RoomProvider } from "./Container/Context/Context";
 import Teacher from "./Components/Teacher/Teacher";
 
-const browserHistory = createBrowserHistory();
 const GlobalStyle = createGlobalStyle`
   * {
     font-family: "Noto Sans KR";
@@ -25,9 +21,9 @@ const GlobalStyle = createGlobalStyle`
 const App = () => {
   return (
     <>
-      <Router history={browserHistory}>
+      <Router>
         <RoomProvider>
-          <GlobalStyle></GlobalStyle>
+          <GlobalStyle/>
           <Switch>
             <Route exact path="/" component={MainPage} />
             <Route path="/Home" component={Home} />
