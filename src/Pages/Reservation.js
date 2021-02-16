@@ -1,9 +1,9 @@
 import React from "react";
 import {Reservation} from "../Components";
 
-const ReservationPage = () => {
+const ReservationPage = ({match}) => {
   return (
-    <Reservation />
+    <Reservation match={match} />
   );
 };
 

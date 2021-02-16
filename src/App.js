@@ -1,8 +1,9 @@
 import React from "react";
 import {
   Route,
-  BrowserRouter as Router,
-  Switch,  withRouter,
+  BrowserRouter,
+  Switch,
+  withRouter,
 } from "react-router-dom";
 import { Home, MainPage } from "./Pages";
 import { createGlobalStyle } from "styled-components";
@@ -21,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
 const App = () => {
   return (
     <>
-      <Router>
+      <BrowserRouter>
         <RoomProvider>
           <GlobalStyle/>
           <Switch>
@@ -29,11 +30,11 @@ const App = () => {
             <Route path="/Home" component={Home} />
             <Route path="/Teacher" component={Teacher} />
             <Route path="/Lookup" component={withRouter(Home)} />
-            <Route path="/Reservation" component={withRouter(Home)} />
+            <Route path="/Reservation/:id" component={withRouter(Home)} />
             <Route path="/Mypage" component={withRouter(Home)} />
           </Switch>
         </RoomProvider>
-      </Router>
+      </BrowserRouter>
     </>
   );
 };

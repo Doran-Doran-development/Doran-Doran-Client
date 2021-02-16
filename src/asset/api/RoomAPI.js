@@ -1,9 +1,9 @@
-import { CONFERENCE } from "../../lib/requestApi";
+import { CONFERENCE } from "../../lib/requestUrl";
 import {
   methodType,
   requestApiWithBodyWithToken,
   requestApiWithoutBodyWithToken,
-} from "../../lib/requestUrl";
+} from "../../lib/requestApis";
 import { BASE_URL } from "../../config/config.json";
 
 class Room {

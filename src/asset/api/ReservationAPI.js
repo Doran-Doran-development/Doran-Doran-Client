@@ -1,11 +1,11 @@
 import axios from "axios";
 import { BASE_URL } from "../../config/config.json";
-import { CONFERENCE, RESERVATION } from "../../lib/requestApi";
+import { CONFERENCE, RESERVATION } from "../../lib/requestUrl";
 import {
   methodType,
   requestApiWithBodyWithToken,
   requestApiWithoutBodyWithToken,
-} from "../../lib/requestUrl";
+} from "../../lib/requestApis";
 
 class Reservation {
   async reserve(room_id, team_id, reserve_time) {

@@ -1,125 +1,66 @@
-import axios from "axios";
-import { BASE_URL } from "../config/config.json";
-import { AUTH } from "./requestApi";
-
-export const methodType = {
-  GET: "get",
-  POST: "post",
-  DELETE: "delete",
-  PATCH: "patch",
-  PUT: "put",
-};
-export const ACCESS_TOKEN_NAME = "Authorization";
-export const ACCESS_TOKEN = "accessToken";
-export const REFRESH_TOKEN = "refreshToken";
-let token = window.localStorage.getItem(ACCESS_TOKEN);
-//JWT 토큰이 필요한 요청
-export const useTokenAxios = axios.create({
-  headers: {
-    Authorization: `Bearer ${token}`,
+export const AUTH = {
+  login: () => {
+    return `/auth/login`;
   },
-});
-// 토큰 없는 파라미터가 필요한 api 요청
-export const requestApiWithBodyWithoutToken = async (
-  BASE_URL,
-  method,
-  url,
-  body,
-  header
-) => {
-  try {
-    const res = await axios[method](BASE_URL + url, body, {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type,Authorization",
-        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,OPTIONS",
-        "Access-Control-Allow-Credentials": "true",
-        ...header,
-      },
-    });
-    return res;
-  } catch (error) {
-    throw error;
-  }
+  refreshToken: () => {
+    return `/auth/refresh`;
+  },
+
 };
-//토큰과 파라미터 없는 api 요청
-export const requestApiWithoutBodyWithoutToken = async (
-  BASE_URL,
-  method,
-  url,
-  header
-) => {
-  try {
-    const res = await axios[method](BASE_URL + url, {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type,Authorization",
-        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,OPTIONS",
-        "Access-Control-Allow-Credentials": "true",
-        ...header,
-      },
-    });
-    return res;
-  } catch (error) {
-    throw error;
-  }
+const USER_BASE = `/auth/users/`;
+export const USER = {
+  user: () => {
+    return `${USER_BASE}`; // POST면 유저 생성, GET이면 유저 조회(단체)
+  },
+  userInfo: (uid) => {
+    return `${USER_BASE}${uid}`;
+    // GET - 유저 정보 조회 (단일)
+    //DELETE - 유저 삭제 (모두)
+  },
+  changeUser: (uid) => {
+    return `${USER_BASE}${uid}/change-name`;
+    //PATCH - 유저 이름 변경
+  },
+  changePassword: (uid) => {
+    return `${USER_BASE}${uid}/change-password`;
+    //PATCH - 유저 패스워드 변경
+  },
 };
-//토큰이 필요한 파라미터 없는 api 요청
-export const requestApiWithoutBodyWithToken = async (
-  BASE_URL,
-  method,
-  url,
-  header
-) => {
-  try {
-    const accessToken = window.localStorage.getItem("token");
-    const res = await axios[method](BASE_URL + url, {
-      headers: {
-        [ACCESS_TOKEN_NAME]: `jwt ${accessToken}`,
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type,Authorization",
-        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,OPTIONS",
-        "Access-Control-Allow-Credentials": "true",
-        ...header,
-      },
-    });
-    return res;
-  } catch (error) {
-    throw error;
-  }
+export const CONFERENCE = {
+  room: () => {
+    return `/room`;
+  }, //GET이면 생성, POST면 조회
+  roomInfo: (room_id) => {
+    return `/room/${room_id}`;
+  }, //GET 이면 회의실 세부정보, POST면 회의실 정보 변경, DELETE면 회의실 삭제
 };
 
-//토큰과 파라미터가 모두 필요한 API 요청
-export const requestApiWithBodyWithToken = async (
-  BASE_URL,
-  method,
-  body,
-  url,
-  header
-) => {
-  try {
-    const accessToken = window.localStorage.getItem("token");
-    const res = await axios[method](BASE_URL + url, {
-      headers: {
-        [ACCESS_TOKEN_NAME]: `jwt ${accessToken}`,
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type,Authorization",
-        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,OPTIONS",
-        "Access-Control-Allow-Credentials": "true",
-        ...header,
-      },
-    });
-    return res;
-  } catch (error) {
-    throw error;
-  }
+export const RESERVATION = {
+  reserve: () => {
+    return `/reserve`;
+  }, // get 이면 조회,POST 면 예약
+  reserveParams: (reserve_id) => {
+    return `/reserve/${reserve_id}`;
+  }, // DELETE - 취소, GET - 예약세부정보, PATCH - 예약응답
 };
 
-export const refreshToken = async () => {
-  try {
-    const refreshToken = window.localStorage.getItem(REFRESH_TOKEN);
-    const res = await requestApiWithoutBodyWithToken(BASE_URL);
-  } catch (error) {
-    throw new Error(error);
-  }
+export const TEAM = {
+  teamInfo : () => {
+    return `/team/`;
+  }, //GET  - 모든 팀 기본 정보 확인
+  createTeam: () => {
+    return `/team`;
+  }, //POST 팀 생성
+  deleteTeam: (team_id) => {
+    return `/team/${team_id}`;
+  }, // DELETE 팀 삭제
+  addMember: () => {
+    return `/team/member`;
+  }, // POST 팀원추가
+  delMember: (link_id) => {
+    return `/team/member/${link_id}`;
+  }, //  DELETE 팀원 삭제
+  allMember: (team_id) => {
+    return `/team/member/${team_id}/detailed/`;
+  }, //GET 특정 유저의 가입 된 팀 내역 확인
 };

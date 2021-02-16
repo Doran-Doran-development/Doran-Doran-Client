@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import TeamAPI from '../../asset/api/TeamAPI';
 import { roomSelect } from "../../Container/Actions/Room";
 import { useRoomDispatch, useRoomState } from "../../Container/Context/Context";
 import ClassTimeItem from "./ClassTimeItem/ClassTimeItem";
@@ -18,41 +19,55 @@ import {
 const classtime = [8, 9, 10, 11];
 
 const Reservation = () => {
-  const [team, setTeam] = useState("");
+  const [team, setTeam] = useState([]);
+  const [selectProject, setProject] = useState("");
   const state = useRoomState();
-  console.log("reservation", state);
-  let is_full = [false, false, false, false];
-  const history = useHistory();
-  const handleReserve = () => {
-    alert("예약이 신청되었습니다.");
-    history.push("/Lookup");
-  };
-  const { select_room, userInfo, roomInfo } = state;
   const dispatch = useRoomDispatch();
-  console.log(state, state.select_room);
-  const { id, name, max_team, status, create_at, owner } = roomInfo[
-    select_room
-  ];
-  const teamOptions = userInfo.cur_team.map((team) => (
+  const history = useHistory();
+  const selectRoomId = history.location.state
+  const formCheck = () => {
+
+  }
+  const handleReserve = () => {
+    formCheck()
+  };
+  useEffect(() => {
+    TeamAPI.showTeam().then(res => {
+      console.log(res.data)
+      setTeam([...res.data])
+    })
+  }, [])
+  const { roomInfo } = state;
+  const selectRoom = roomInfo.filter(item => item.id === parseInt(selectRoomId))[0]
+  const {id, name, max_team, status, create_at, owner} = selectRoom || {}
+  const teamOptions = team.map(({team_id, project, description, teacher}) => (
     <option
-      value={`${team}`}
+      value={`${project}`}
       onClick={() => {
-        setTeam(team);
+        setProject(project);
       }}
+      key={team_id}
     >
-      {team}
+      {project}
     </option>
   ));
-  const buttons = classtime.map((t) => <ClassTimeItem time={t} />);
+  const buttons = classtime.map((t) => <ClassTimeItem time={t} key={t} />);
   return (
     <ReservationWrapper>
       <ContentWrapper>
-        <PictureWrapper></PictureWrapper>
-        <Line></Line>
+        <PictureWrapper />
+        <Line />
         <ContentBox>
           <TextBox>
-            <span id="roomName">{name}</span>
-            <span id="people">수용인원 : {max_team}팀</span>
+            {selectRoom ? (
+            <>
+              <span id="roomName">{name}</span>
+              <span id="people">수용인원 : {max_team}팀</span>
+            </>
+            ) : (
+              <span id="roomName">빌릴 곳을 선택해주세요</span>
+              
+            )}
           </TextBox>
           <TimeButtonBox>
             <div className="grid">{buttons}</div>
@@ -61,12 +76,11 @@ const Reservation = () => {
             <select
               name="team"
               className="selectTeam"
-              value={team}
+              value={selectProject}
               onChange={(e) => {
-                setTeam(e.target.value);
+                setProject(e.target.value);
               }}
             >
-              <option selected>팀을 선택해주세요</option>
               {teamOptions}
             </select>
           </SelectBox>

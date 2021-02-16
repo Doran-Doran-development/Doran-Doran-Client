@@ -3,9 +3,9 @@ import {
   requestApiWithBodyWithoutToken,
   requestApiWithBodyWithToken,
   requestApiWithoutBodyWithoutToken,
-} from "../../lib/requestUrl";
+} from "../../lib/requestApis";
 import { BASE_URL } from "../../config/config.json";
-import { USER } from "../../lib/requestApi";
+import { USER } from "../../lib/requestUrl";
 
 class User {
   async register(email, name, password, role) {
