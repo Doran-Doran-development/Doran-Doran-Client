@@ -44,10 +44,14 @@ const Register = ({ setRegOpen }) => {
   };
   const handleRegister = () => {
     User.register(email, name, password, role).then((response) => {
+      console.log(response.status)
       if (response.data) {
         alert("회원가입 성공");
         setRegOpen(false);
       }
+    }).catch(error => {
+      alert("이미 존재하는 이메일 입니다.");
+      setRegOpen(false)
     });
   };
   return (

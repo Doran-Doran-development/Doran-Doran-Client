@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Route,
   BrowserRouter,
@@ -9,6 +9,8 @@ import { Home, MainPage } from "./Pages";
 import { createGlobalStyle } from "styled-components";
 import { RoomProvider } from "./Container/Context/Context";
 import Teacher from "./Components/Teacher/Teacher";
+import Auth from "./asset/api/Auth";
+import { TeamPage } from "./Components";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -32,6 +34,7 @@ const App = () => {
             <Route path="/Lookup" component={withRouter(Home)} />
             <Route path="/Reservation/:id" component={withRouter(Home)} />
             <Route path="/Mypage" component={withRouter(Home)} />
+            <Route path="/TeamPage" component={TeamPage}/>
           </Switch>
         </RoomProvider>
       </BrowserRouter>

@@ -1,14 +1,10 @@
 import combineReducers from "../combineReducers";
 import roomReducer from "./Room";
+import authReducer from "./User";
 
 export const initState = {
   select_room: 0,
-  userInfo: {
-    email: "s19053@gsm.hs.kr",
-    name: "정한빈",
-    cur_team: ["ICT", "도란도란개발팀"],
-    is_active: true,
-  },
+  userInfo: {},
   roomInfo: [],
   team: [{ id: 1, name: "ICT", roomList: [2], mate: ["s19053@gsm.hs.kr"] }],
   teacherRoom: [
@@ -45,5 +41,5 @@ export const initState = {
 
 export const reducer = combineReducers({
   room: roomReducer,
-  
+  user: authReducer,
 });

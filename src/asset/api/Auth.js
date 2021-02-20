@@ -30,8 +30,8 @@ class Auth {
     try {
       const response = requestApiWithoutBodyWithToken(
         BASE_URL,
-        methodType.POST,
-        AUTH.changeToken(),
+        methodType.GET,
+        AUTH.refreshToken(),
         {}
       );
       return response;

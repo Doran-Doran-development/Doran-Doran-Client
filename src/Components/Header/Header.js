@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BiCaretDown, BiSearch } from "react-icons/bi";
 import { Link, useHistory } from "react-router-dom";
+import User from "../../asset/api/User";
+import { userInfo } from "../../Container/Actions/Auth/Auth";
+import { useRoomDispatch, useRoomState } from "../../Container/Context/Context";
 import Logo from "../../img/logo_re.png";
 import Profile from "../../img/worker_1.png";
 import {
@@ -42,6 +45,16 @@ const RouterContainer = () => {
 };
 
 const Header = ({ handleLogout }) => {
+  const dispatch = useRoomDispatch();
+  const state = useRoomState();
+  const {name} = state.userInfo;
+  useEffect(() => {
+    User.myInfo().then(res => {
+      console.log(res.data)
+      dispatch(userInfo(res.data.info))
+      console.log(state.userInfo)
+    })
+  }, [name])
   return (
     <>
       <HeaderWrapper>
@@ -60,7 +73,7 @@ const Header = ({ handleLogout }) => {
           <div>
             <img src={Profile} alt="profile" />
             <span>
-              <strong>정한빈 </strong>님 환영합니다 !
+              <strong>{name} </strong>님 환영합니다 !
             </span>
           </div>
           <button onClick={handleLogout}>로그아웃</button>

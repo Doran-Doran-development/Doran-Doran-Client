@@ -5,7 +5,9 @@ export const AUTH = {
   refreshToken: () => {
     return `/auth/refresh`;
   },
-
+userInfo : () => {
+  return `/auth/check`;
+}
 };
 const USER_BASE = `/auth/users/`;
 export const USER = {

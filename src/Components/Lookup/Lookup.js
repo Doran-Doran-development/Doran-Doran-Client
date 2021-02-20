@@ -41,6 +41,8 @@ const LookUp = () => {
   const dispatch = useRoomDispatch();
   useEffect(() => {
     RoomAPI.loadRoom().then(res => {
+      console.log(res,state.roomInfo)
+      console.log(state.roomInfo)
       dispatch(getRoom(res.data))
     })
   }, []);
