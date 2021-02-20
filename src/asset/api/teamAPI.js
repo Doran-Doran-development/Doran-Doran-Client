@@ -1,10 +1,10 @@
-import { TEAM } from "../../lib/requestApi";
+import { TEAM } from "../../lib/requestUrl";
 import { BASE_URL } from "../../config/config.json";
 import {
   methodType,
   requestApiWithBodyWithToken,
   requestApiWithoutBodyWithToken,
-} from "../../lib/requestUrl";
+} from "../../lib/requestApis";
 
 class Team {
   async showTeam() {
@@ -12,7 +12,7 @@ class Team {
       const response = requestApiWithoutBodyWithToken(
         BASE_URL,
         methodType.GET,
-        TEAM.showTeam(),
+        TEAM.teamInfo(),
         {}
       );
       return response;

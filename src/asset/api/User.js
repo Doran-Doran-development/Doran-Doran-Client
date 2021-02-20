@@ -3,9 +3,10 @@ import {
   requestApiWithBodyWithoutToken,
   requestApiWithBodyWithToken,
   requestApiWithoutBodyWithoutToken,
-} from "../../lib/requestUrl";
+  requestApiWithoutBodyWithToken,
+} from "../../lib/requestApis";
 import { BASE_URL } from "../../config/config.json";
-import { USER } from "../../lib/requestApi";
+import { AUTH, USER } from "../../lib/requestUrl";
 
 class User {
   async register(email, name, password, role) {
@@ -25,7 +26,20 @@ class User {
       );
       return response;
     } catch (error) {
-      throw new Error(error);
+      throw new Error(error)
+    }
+  }
+  async myInfo() {
+    try {
+      const response = requestApiWithoutBodyWithToken(
+        BASE_URL, 
+        methodType.GET,
+        AUTH.userInfo(),
+        {}
+      )
+      return response;
+    } catch(error) {
+      throw new Error(error)
     }
   }
   async userInfoAll() {

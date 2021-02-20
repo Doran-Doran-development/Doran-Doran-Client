@@ -10,7 +10,7 @@ import {
   TitleText,
 } from "./Styled";
 import { useRoomState, useRoomDispatch } from "../../Container/Context/Context";
-import { getRoom, roomSelect } from "../../Container/Actions/Room";
+import { getRoom } from "../../Container/Actions/Room";
 
 const RoomItem = ({ id, roomname, max_team, status, handleReserve }) => {
   return (
@@ -37,19 +37,18 @@ const RoomItem = ({ id, roomname, max_team, status, handleReserve }) => {
 const LookUp = () => {
   const history = useHistory();
   const state = useRoomState();
-  console.log("lookup", state);
   const { roomInfo } = state;
   const dispatch = useRoomDispatch();
-  const [roomlist, setList] = useState([]);
   useEffect(() => {
-    dispatch(getRoom());
+    RoomAPI.loadRoom().then(res => {
+      console.log(res,state.roomInfo)
+      console.log(state.roomInfo)
+      dispatch(getRoom(res.data))
+    })
   }, []);
   const handleReserve = (id) => {
-    console.log("id", id);
-    dispatch(roomSelect(id));
-    history.push("/Reservation");
+    history.push(`/Reservation/${id}`, id);
   };
-
   const rooms = roomInfo.map(
     ({ id, name, max_team, status, created_at, owner }) => (
       <RoomItem
@@ -62,7 +61,6 @@ const LookUp = () => {
       />
     )
   );
-  console.log(rooms);
   return <LookUpWrapper>{rooms}</LookUpWrapper>;
 };
 

@@ -1,18 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Route,
-  Router,
+  BrowserRouter,
   Switch,
-  useHistory,
   withRouter,
 } from "react-router-dom";
 import { Home, MainPage } from "./Pages";
-import { createBrowserHistory } from "history";
 import { createGlobalStyle } from "styled-components";
 import { RoomProvider } from "./Container/Context/Context";
 import Teacher from "./Components/Teacher/Teacher";
+import Auth from "./asset/api/Auth";
+import { TeamPage } from "./Components";
 
-const browserHistory = createBrowserHistory();
 const GlobalStyle = createGlobalStyle`
   * {
     font-family: "Noto Sans KR";
@@ -25,19 +24,20 @@ const GlobalStyle = createGlobalStyle`
 const App = () => {
   return (
     <>
-      <Router history={browserHistory}>
+      <BrowserRouter>
         <RoomProvider>
-          <GlobalStyle></GlobalStyle>
+          <GlobalStyle/>
           <Switch>
             <Route exact path="/" component={MainPage} />
             <Route path="/Home" component={Home} />
             <Route path="/Teacher" component={Teacher} />
             <Route path="/Lookup" component={withRouter(Home)} />
-            <Route path="/Reservation" component={withRouter(Home)} />
+            <Route path="/Reservation/:id" component={withRouter(Home)} />
             <Route path="/Mypage" component={withRouter(Home)} />
+            <Route path="/TeamPage" component={TeamPage}/>
           </Switch>
         </RoomProvider>
-      </Router>
+      </BrowserRouter>
     </>
   );
 };

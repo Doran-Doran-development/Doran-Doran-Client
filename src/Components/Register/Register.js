@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BiUser, BiLock, BiX, BiIdCard } from "react-icons/bi";
 import Auth from "../../asset/api/Auth";
+import User from "../../asset/api/User";
 import Logo from "../../img/logo_re.png";
 import {
   CloseBtn,
@@ -9,9 +10,9 @@ import {
   LoginWrapper,
   LogoContainer,
 } from "../Login/Style";
-import SelectForm from "./SelectForm/SelectForm";
+import SelectForm from "./SelectForm/SelectForm"; 
 
-const Register = ({ setRegOpen, history }) => {
+const Register = ({ setRegOpen }) => {
   const [select, setSelect] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,11 +43,15 @@ const Register = ({ setRegOpen, history }) => {
     }
   };
   const handleRegister = () => {
-    Auth.register(email, name, password, role).then((response) => {
+    User.register(email, name, password, role).then((response) => {
+      console.log(response.status)
       if (response.data) {
         alert("회원가입 성공");
         setRegOpen(false);
       }
+    }).catch(error => {
+      alert("이미 존재하는 이메일 입니다.");
+      setRegOpen(false)
     });
   };
   return (

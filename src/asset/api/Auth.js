@@ -1,17 +1,17 @@
 import { BASE_URL } from "../../config/config.json";
-import { AUTH } from "../../lib/requestApi";
+import { AUTH } from "../../lib/requestUrl";
 import {
   methodType,
   requestApiWithBodyWithoutToken,
   requestApiWithoutBodyWithToken,
-} from "../../lib/requestUrl";
+} from "../../lib/requestApis";
 
 class Auth {
   async login(email, password) {
     try {
       const body = {
         email,
-        password,
+        password
       };
       const config = {};
       const response = requestApiWithBodyWithoutToken(
@@ -30,8 +30,8 @@ class Auth {
     try {
       const response = requestApiWithoutBodyWithToken(
         BASE_URL,
-        methodType.POST,
-        AUTH.changeToken(),
+        methodType.GET,
+        AUTH.refreshToken(),
         {}
       );
       return response;

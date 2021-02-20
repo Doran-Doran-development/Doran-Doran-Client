@@ -22,7 +22,10 @@ const Login = ({ setLoginOpen }) => {
       console.log(res);
       window.localStorage.setItem("token", res.data.token);
       alert("로그인 성공");
-      history.push("/Lookup", res.data.user);
+      history.push("/Lookup");
+
+    }).catch(error => {
+      alert("이메일이나 비밀번호가 다릅니다.")
     });
   };
   return (
