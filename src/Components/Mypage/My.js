@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   MyPageWrapper,
   MyRoomBox,
@@ -13,8 +13,10 @@ import checked from "../../img/checked.png";
 import setting from "../../img/settings.png";
 import { useRoomState } from "../../Container/Context/Context";
 import RoomItem from "./RoomItem/RoomItem";
+import MypageModal from "./Modal/MypageModal";
 
 const My = () => {
+  const [is_Open, setIs_Open] = useState(false);
   const state = useRoomState();
   const myRooms = state.teacherRoom
     .filter((item) => state.userInfo.cur_team.indexOf(item.team) !== -1)
@@ -47,7 +49,7 @@ const My = () => {
             <div className="listWrap">
               <div className="listTop">
                 <span>승인 목록</span>
-                <img src={checked}></img>
+                <img src={checked}/>
               </div>
               <div className="allowBox">{allowList}</div>
             </div>
@@ -56,7 +58,7 @@ const My = () => {
             <div className="teamWrap">
               <div className="teamTop">
                 <span>팀 관리하기</span>
-                <img src={setting}></img>
+                <img src={setting} onClick={() => setIs_Open(true)}/>
               </div>
               <div className="teamName">
                 <ul>
@@ -68,6 +70,7 @@ const My = () => {
           </TeamContainer>
         </ControlWrapper>
       </MyContentBox>
+      {is_Open === true ? <MypageModal></MypageModal> : ""}
     </MyPageWrapper>
   );
 };

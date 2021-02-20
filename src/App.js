@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     -ms-overflow-style: none;
   &::-webkit-scrollbar {
     display: none;
-  }
+    }
   }
 `;
 const App = () => {

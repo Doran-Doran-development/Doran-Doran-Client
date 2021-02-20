@@ -10,3 +10,4 @@ import My from "./Mypage/My";
 import TeamPage from "./Team/TeamPage/TeamPage";
 
 export { Main, Login, Register, Header, LookUp, Footer, Reservation, My, TeamPage };
+
