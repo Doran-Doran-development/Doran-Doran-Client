@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import RoomAPI from "../../asset/api/RoomAPI";
 import {
@@ -42,12 +42,12 @@ const LookUp = () => {
   useEffect(() => {
     RoomAPI.loadRoom().then(res => {
       console.log(res,state.roomInfo)
-      console.log(state.roomInfo)
       dispatch(getRoom(res.data))
+      console.log(state.roomInfo)
     })
-  }, []);
+  }, [dispatch, state.roomInfo]);
   const handleReserve = (id) => {
-    history.push(`/Reservation/${id}`, id);
+    history.push(`/Reservation/${id}`, id); 
   };
   const rooms = roomInfo.map(
     ({ id, name, max_team, status, created_at, owner }) => (
@@ -55,7 +55,7 @@ const LookUp = () => {
         key={id}
         id={id}
         roomname={name}
-        max_team={max_team}
+        max_team={max_team} 
         status={status}
         handleReserve={handleReserve}
       />
@@ -64,4 +64,4 @@ const LookUp = () => {
   return <LookUpWrapper>{rooms}</LookUpWrapper>;
 };
 
-export default LookUp;
+export default React.memo(LookUp);

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Buttons } from "../Styled";
 
-const ClassTimeItem = ({ time }) => {
-  const [select, setSelect] = useState(false);
-  const [is_full, setFull] = useState(false);
+const ClassTimeItem = ({ time, select, setTimeCheck }) => {
+  const [isFull, setFull] = useState(false);
   return (
     <Buttons
       select={select}
-      is_full={is_full}
+      is_full={isFull}
       onClick={(e) => {
-        setSelect(!select);
+        e.preventDefault()
+        setTimeCheck(time);
       }}
     >
       {time}교시

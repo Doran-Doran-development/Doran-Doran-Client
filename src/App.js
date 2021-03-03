@@ -20,6 +20,11 @@ const GlobalStyle = createGlobalStyle`
     display: none;
   }
   }
+  button:focus,
+  input:focus,
+  select:focus {
+    outline: none;
+  }
 `;
 const App = () => {
   return (
@@ -35,7 +40,7 @@ const App = () => {
             <Route path="/Reservation/:id" component={withRouter(Home)} />
             <Route path="/Mypage" component={withRouter(Home)} />
             <Route path="/TeamPage" component={TeamPage}/>
-          </Switch>
+          </Switch> 
         </RoomProvider>
       </BrowserRouter>
     </>

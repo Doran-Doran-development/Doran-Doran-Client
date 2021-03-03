@@ -18,7 +18,7 @@ const Main = () => {
   useEffect(() => {
     const token = window.localStorage.getItem("token");
     if (token) {
-      history.push("/Home", "");
+      history.push("/Lookup", "");
     }
   });
   return (

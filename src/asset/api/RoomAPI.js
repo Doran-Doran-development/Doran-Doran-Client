@@ -13,13 +13,11 @@ class Room {
         BASE_URL,
         methodType.GET,
         CONFERENCE.room(),
-        {
-          "Content-Type": "application/json",
-        }
+        {}
       );
-      return response;
+        return response;
     } catch (error) {
-      throw error;
+      throw new Error(error);
     }
   }
   async createRoom(name, max_team) {

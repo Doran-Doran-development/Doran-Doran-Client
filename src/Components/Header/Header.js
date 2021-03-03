@@ -14,7 +14,7 @@ import {
   RouterWrapper,
 } from "./Styled";
 
-const RouterContainer = () => {
+const RouterContainer = React.memo(() => {
   const history = useHistory();
   const {pathname} = history.location;
   return (
@@ -42,7 +42,7 @@ const RouterContainer = () => {
       <div className={"space"} />
     </RouterWrapper>
   );
-};
+});
 
 const Header = ({ handleLogout }) => {
   const dispatch = useRoomDispatch();
@@ -50,11 +50,10 @@ const Header = ({ handleLogout }) => {
   const {name} = state.userInfo;
   useEffect(() => {
     User.myInfo().then(res => {
-      console.log(res.data)
+      console.log("header render")
       dispatch(userInfo(res.data.info))
-      console.log(state.userInfo)
     })
-  }, [name])
+  }, [dispatch, name])
   return (
     <>
       <HeaderWrapper>
@@ -84,4 +83,4 @@ const Header = ({ handleLogout }) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

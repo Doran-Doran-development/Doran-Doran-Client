@@ -99,9 +99,10 @@ export const requestApiWithBodyWithToken = async (
 ) => {
   try {
     const accessToken = window.localStorage.getItem("token");
-    const res = await axios[method](BASE_URL + url, {
+    console.log(accessToken)
+    const res = await axios[method](BASE_URL + url, body, {
       headers: {
-        [ACCESS_TOKEN_NAME]: `jwt ${accessToken}`,
+        "Authorization" : `jwt ${accessToken}`,
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "Content-Type,Authorization",
         "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,OPTIONS",

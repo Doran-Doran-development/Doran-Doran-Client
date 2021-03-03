@@ -11,11 +11,20 @@ import {
 } from "./Styled";
 import checked from "../../img/checked.png";
 import setting from "../../img/settings.png";
-import { useRoomState } from "../../Container/Context/Context";
+import { useRoomDispatch, useRoomState } from "../../Container/Context/Context";
 import RoomItem from "./RoomItem/RoomItem";
+import TeamAPI from "../../asset/api/TeamAPI";
+import { setTeam } from "../../Container/Actions/Team";
 
 const My = () => {
   const state = useRoomState();
+  const dispatch = useRoomDispatch()
+  useEffect(() => {
+    TeamAPI.showTeam().then(res => {
+      console.log(res.data)
+      dispatch(setTeam(res.data))
+    })  
+  }, [])
   const myRooms = state.teacherRoom
     .filter((item) => state.userInfo.cur_team.indexOf(item.team) !== -1)
     .map(({ name, classtime, team }) => {
@@ -35,6 +44,9 @@ const My = () => {
         </div>
       );
     });
+    const teams = state.team.map(({team_id, project}) => (
+      <li key={team_id}>{project}</li>
+    ))
   return (
     <MyPageWrapper>
       <MyContentBox>
@@ -60,8 +72,7 @@ const My = () => {
               </div>
               <div className="teamName">
                 <ul>
-                  <li>도란도란개발팀</li>
-                  <li>ICT</li>
+                  {teams}
                 </ul>
               </div>
             </div>

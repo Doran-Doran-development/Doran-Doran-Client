@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import ReservationAPI from "../../asset/api/ReservationAPI";
 import TeamAPI from '../../asset/api/TeamAPI';
 import { roomSelect } from "../../Container/Actions/Room";
 import { useRoomDispatch, useRoomState } from "../../Container/Context/Context";
@@ -16,20 +17,60 @@ import {
   ReservationBtn,
 } from "./Styled";
 
-const classtime = [8, 9, 10, 11];
+const classtime = [
+  {time : 8, select : false},
+  {time : 9, select : false},
+  {time : 10, select : false},
+  {time : 11, select : false}
+]
 
 const Reservation = () => {
   const [team, setTeam] = useState([]);
   const [selectProject, setProject] = useState("");
+  const [classtime, setClasstime] = useState([
+    {time : 8, select : false},
+    {time : 9, select : false},
+    {time : 10, select : false},
+    {time : 11, select : false}
+  ])
   const state = useRoomState();
   const dispatch = useRoomDispatch();
   const history = useHistory();
   const selectRoomId = history.location.state
+  const setTimeCheck = (time) => {
+    console.log(time)
+    setClasstime(classtime.map((item, index) => 
+       item.time === time ? {...item, select : !item.select} : item
+    ))
+    console.log(classtime)
+  }
   const formCheck = () => {
-
+    if(selectRoom) {
+      const timeCheck = classtime.some(item => item.select)
+      if(timeCheck) {
+        if(selectProject !== "팀을 선택해주세요") {
+            handleReserve()
+        } else {
+          alert("팀을 선택해주세요")
+        }
+      } else {
+        alert("시간을 선택해주세요")
+      }
+    } else {
+      alert("빌릴 곳을 선택해주세요")
+    }
   }
   const handleReserve = () => {
-    formCheck()
+    const times = [];
+    classtime.forEach(item => {
+      times.push(item.select)
+    })
+    const selectTeamId = team[team.findIndex(item => item.project === selectProject)].team_id;
+    ReservationAPI.reserve(selectRoomId, selectTeamId, 10).then(res => {
+      console.log(res)
+    }).catch(err => {
+      alert("이미 신청되어 있습니다.")
+    })
   };
   useEffect(() => {
     TeamAPI.showTeam().then(res => {
@@ -43,15 +84,20 @@ const Reservation = () => {
   const teamOptions = team.map(({team_id, project, description, teacher}) => (
     <option
       value={`${project}`}
-      onClick={() => {
-        setProject(project);
-      }}
       key={team_id}
     >
       {project}
     </option>
   ));
-  const buttons = classtime.map((t) => <ClassTimeItem time={t} key={t} />);
+  const buttons = classtime.map(({time, select}) => (
+    <ClassTimeItem 
+      time={time}
+      key={time}
+      select={select}
+      setTimeCheck={setTimeCheck}
+    />
+    )
+  );
   return (
     <ReservationWrapper>
       <ContentWrapper>
@@ -74,17 +120,18 @@ const Reservation = () => {
           </TimeButtonBox>
           <SelectBox>
             <select
-              name="team"
+              name="team"  
               className="selectTeam"
               value={selectProject}
               onChange={(e) => {
                 setProject(e.target.value);
               }}
             >
+              <option selected>팀을 선택해주세요</option>
               {teamOptions}
             </select>
           </SelectBox>
-          <ReservationBtn onClick={handleReserve}>예약하기</ReservationBtn>
+          <ReservationBtn onClick={formCheck}>예약하기</ReservationBtn>
         </ContentBox>
       </ContentWrapper>
     </ReservationWrapper>

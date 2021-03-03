@@ -39,7 +39,7 @@ export const CONFERENCE = {
 
 export const RESERVATION = {
   reserve: () => {
-    return `/reserve`;
+    return `/reserve/`;
   }, // get 이면 조회,POST 면 예약
   reserveParams: (reserve_id) => {
     return `/reserve/${reserve_id}`;

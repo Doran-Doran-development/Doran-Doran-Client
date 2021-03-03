@@ -70,6 +70,7 @@ export const Buttons = styled.button`
   border-radius: 10px;
   font-size: 20px;
   font-weight: bold;
+  outline: none;
   ${(props) =>
     props.is_full &&
     css`

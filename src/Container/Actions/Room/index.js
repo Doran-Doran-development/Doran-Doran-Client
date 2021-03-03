@@ -28,6 +28,7 @@ export const roomSelect = (id) => {
 };
 
 export const getRoom = (roomList) => {
+  console.log(roomList)
   return {
     type: Room_GET,
     roomList,

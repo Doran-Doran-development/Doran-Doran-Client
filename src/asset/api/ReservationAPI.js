@@ -15,7 +15,7 @@ class Reservation {
         BASE_URL,
         methodType.POST,
         body,
-        RESERVATION.reserve(),
+        RESERVATION.reserve(), 
         {}
       );
       return response;
